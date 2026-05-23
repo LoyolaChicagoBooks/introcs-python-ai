@@ -395,7 +395,7 @@ There are three main categories of software:
 - **Utility software** — supporting tools that maintain and optimize the system.
   Examples: antivirus tools, backup utilities, file compression, disk cleanup.
 
-.. index:: systems programming languages, C language, C++ language, Rust language, assembly language, Ada language, Go language, Python; as high-level language
+.. index:: systems programming languages, C language, C++ language, Java language, Rust language, assembly language, Ada language, Go language, Python; as high-level language
    ACM-IEEE CS2013; PL/Languages Programming Languages: Language Translation and Execution
    ACM-IEEE CS2023; PL/Languages Programming Languages: Language Translation and Execution
 
@@ -415,6 +415,12 @@ call for different tools:
 
 - **C++** — extends C with object-oriented features. Used in operating systems,
   game engines, browsers (Chrome, Firefox), and real-time systems.
+
+- **Java** — compiles to bytecode that runs on the Java Virtual Machine (JVM),
+  making programs portable across platforms without recompilation. Java manages
+  memory automatically through garbage collection. It dominates enterprise
+  backend systems and Android app development, and influenced languages like
+  C# and Kotlin.
 
 - **Rust** — a modern systems language designed for memory safety without a
   garbage collector. Increasingly used in OS components, browsers, and
