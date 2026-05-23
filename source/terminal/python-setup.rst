@@ -1,4 +1,4 @@
-.. index:: Python installation, virtual environment, venv, uv, Homebrew, WSL, Windows Subsystem for Linux, python3
+.. index:: Python installation, virtual environment, venv, uv, Homebrew, WSL, Windows Subsystem for Linux, python3, vim, Emacs, text editor; terminal
 
 .. _Python-Setup:
 
@@ -286,3 +286,143 @@ Once the environment is active, use ``uv pip`` in place of ``pip``:
    perfectly fine. ``uv`` is worth knowing about, but adds an extra dependency
    (Homebrew on macOS). Both paths produce the same virtual environment and
    work the same way once activated.
+
+.. _Terminal-Editors:
+
+Editing Python Programs in the Terminal
+-----------------------------------------
+
+With Python installed and a virtual environment active, you need a way to
+create and edit ``.py`` files. This book is terminal-centric, so we recommend
+learning a terminal-based editor: **Vim** or **Emacs**. Both run inside the
+terminal, are available on every Unix-like system, and are widely used by
+professional programmers. VS Code is an acceptable alternative if you prefer
+a graphical editor, but knowing at least one terminal editor is a valuable
+skill — especially when working on remote servers where graphical tools are
+unavailable.
+
+Vim
+^^^
+
+Vim is installed by default on macOS and most Linux distributions. To check:
+
+.. code-block:: none
+
+   vim --version
+
+**Opening a file**
+
+.. code-block:: none
+
+   vim hello.py
+
+If ``hello.py`` does not exist, Vim creates it when you save.
+
+**The two modes you need to know**
+
+Vim is a *modal* editor. When it opens, you are in **Normal mode** — keystrokes
+are commands, not text. To type, you switch to **Insert mode**:
+
+- Press ``i`` to enter Insert mode. The bottom of the screen shows ``-- INSERT --``.
+- Type your program.
+- Press ``Esc`` to return to Normal mode.
+
+**Saving and quitting** (from Normal mode):
+
+- ``:w`` — save (write) the file.
+- ``:q`` — quit.
+- ``:wq`` — save and quit in one step.
+- ``:q!`` — quit without saving (discard changes).
+
+**A complete example**
+
+.. code-block:: none
+
+   vim hello.py
+
+Press ``i``, type:
+
+.. code-block:: python
+
+   print("Hello, world!")
+
+Press ``Esc``, then type ``:wq`` and press Enter. Run the program:
+
+.. code-block:: none
+
+   python hello.py
+
+Output:
+
+.. code-block:: none
+
+   Hello, world!
+
+Emacs
+^^^^^
+
+Emacs is available on macOS via Homebrew and on Linux via the system package
+manager:
+
+.. code-block:: none
+
+   brew install emacs        # macOS
+   sudo apt install emacs    # Ubuntu / Debian
+
+**Opening a file**
+
+.. code-block:: none
+
+   emacs hello.py
+
+**Key bindings**
+
+Emacs uses the ``Ctrl`` key (written ``C-``) and the ``Meta`` key — usually
+``Alt`` on Linux or ``Option`` on macOS (written ``M-``):
+
+- **Type normally** — unlike Vim, Emacs starts in editing mode. Just start
+  typing.
+- ``C-x C-s`` — save the file (hold Ctrl, press ``x``, then hold Ctrl, press
+  ``s``).
+- ``C-x C-c`` — quit Emacs.
+- ``C-g`` — cancel any partially typed command.
+
+**A complete example**
+
+.. code-block:: none
+
+   emacs hello.py
+
+Type:
+
+.. code-block:: python
+
+   print("Hello, world!")
+
+Press ``C-x C-s`` to save, then ``C-x C-c`` to quit. Run the program:
+
+.. code-block:: none
+
+   python hello.py
+
+Output:
+
+.. code-block:: none
+
+   Hello, world!
+
+VS Code (graphical alternative)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you prefer a graphical editor, `Visual Studio Code <https://code.visualstudio.com>`__
+works well with Python. Install the **Python** extension from Microsoft, then
+open a file or folder from the terminal:
+
+.. code-block:: none
+
+   code hello.py
+
+VS Code integrates with virtual environments and supports running and debugging
+Python programs directly. It is a reasonable choice, but you will still need to
+use the terminal for running programs, managing packages, and working on remote
+systems — so the terminal skills in this chapter remain essential.
