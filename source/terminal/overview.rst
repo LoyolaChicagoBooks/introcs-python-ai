@@ -1,4 +1,6 @@
-.. index:: terminal, shell, command line, stdin, stdout, stderr, sys.argv, argparse, cat, touch, cp, mv, rm, echo, less, grep, find, chmod, chown, ps, top, kill, file permissions, process management
+.. index:: terminal, shell, command line, stdin, stdout, stderr, redirection,
+           pipe, sys.argv, argparse, cat, touch, cp, mv, rm, echo, less, grep,
+           find, chmod, chown, ps, top, kill, file permissions, process management
    ACM-IEEE CS2013; SE3 Tools and Environments
    ACM-IEEE CS2023; SE3 Tools and Environments
 
@@ -312,6 +314,153 @@ Here is a Python script that writes to all three:
 
    user_input = input("Type something: ")
    print(f"You typed: {user_input}")
+
+.. index:: command redirection, shell; redirection, pipe, stdout; redirection,
+           stdin; redirection, stderr; redirection, here document
+
+Command Redirection
+-------------------
+
+Standard streams can be connected to files and to other commands.  This is
+called **redirection**.  Redirection is one reason terminal commands are so
+powerful: a command does not need to know whether its input came from the
+keyboard, a file, or another program.
+
+The most common redirection operators are:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Operator
+     - Meaning
+   * - ``>``
+     - Send stdout to a file, replacing the file if it already exists.
+   * - ``>>``
+     - Send stdout to a file, appending to the end if it already exists.
+   * - ``<``
+     - Read stdin from a file instead of the keyboard.
+   * - ``2>``
+     - Send stderr to a file.
+   * - ``|``
+     - Send stdout from one command into stdin of another command.
+
+Using a Pipe
+^^^^^^^^^^^^
+
+The vertical bar symbol, ``|``, is called a **pipe**.  It connects the output of
+one command to the input of another command.
+
+For example, to check whether a file called ``hello.py`` appears in the current
+directory, send the output of ``ls`` into ``grep``:
+
+.. code-block:: none
+
+   $ ls | grep hello.py
+
+If ``hello.py`` exists, its name is printed.  If it does not exist, nothing is
+printed.  The ``ls`` command writes a list of filenames to stdout; ``grep`` reads
+that list from stdin and prints only matching lines.
+
+Writing Output to a File
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``>`` operator sends stdout to a file.  This makes it possible to create a
+short file without opening an editor:
+
+.. code-block:: none
+
+   $ echo 'print("Hello, world!")' > hello.py
+
+The outer single quotes protect the inner double quotes, so the shell passes the
+Python statement to ``echo`` as one piece of text.  After running the command,
+``hello.py`` contains:
+
+.. code-block:: python
+
+   print("Hello, world!")
+
+You can run the new program immediately:
+
+.. code-block:: none
+
+   $ python hello.py
+   Hello, world!
+
+Be careful with ``>``.  If the file already exists, the shell replaces its
+contents.  Use ``>>`` when you want to append instead:
+
+.. code-block:: none
+
+   $ echo 'print("Goodbye!")' >> hello.py
+
+Reading Input from a File
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``<`` operator sends a file into a program's stdin.  Suppose
+``name_reader.py`` contains:
+
+.. code-block:: python
+
+   name = input("Name: ")
+   print(f"Hello, {name}!")
+
+Create a small input file:
+
+.. code-block:: none
+
+   $ echo "Ada" > name.txt
+
+Then run the program with stdin redirected from the file:
+
+.. code-block:: none
+
+   $ python name_reader.py < name.txt
+   Name: Hello, Ada!
+
+The program still calls ``input()``, but the input comes from ``name.txt``
+instead of the keyboard.
+
+Capturing Error Messages
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Because stderr is separate from stdout, you can save error messages without
+mixing them with normal output.  The ``2>`` operator redirects stderr:
+
+.. code-block:: none
+
+   $ python missing_file.py 2> errors.txt
+
+If the program prints a traceback or another error message, that message is
+written to ``errors.txt``.  Normal output still appears in the terminal unless
+you redirect stdout too.
+
+Creating Several Lines with a Here Document
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A **here document** lets you provide several lines of text to a command.  The
+``cat`` command normally copies stdin to stdout.  Combined with ``>``, it can
+create a short Python file:
+
+.. code-block:: none
+
+   $ cat > channels.py <<'END'
+   import sys
+
+   print("This goes to stdout")
+   sys.stdout.write("This also goes to stdout\\n")
+   sys.stderr.write("This goes to stderr\\n")
+
+   user_input = input("Type something: ")
+   print(f"You typed: {user_input}")
+   END
+
+The word ``END`` marks where the input stops.  It is not written into the file.
+Quoting it as ``'END'`` tells the shell not to interpret special characters
+inside the text.
+
+This technique is useful for creating very small programs before you have
+learned a terminal editor such as Vim or Emacs.  For larger programs, use a real
+editor so you can revise the file safely.
 
 Running Python Scripts from the Terminal
 -----------------------------------------

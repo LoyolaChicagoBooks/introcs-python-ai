@@ -16,6 +16,7 @@
    single: Synovic, Nicholas
    single: Läufer, Konstantin
    single: Irakliotis, Leo
+   single: Yacobellis, Bob
    single: Christopher, Thomas W.
    single: Harrington, Andy
 
@@ -53,6 +54,7 @@ data, and user interface programming were contributed by PhD students in COMP
 
 - Konstantin Läufer, Professor of Computer Science, Loyola University Chicago
 - Leo Irakliotis, Teaching Associate Professor of Computer Science, Loyola University Chicago
+- Bob Yacobellis, Teaching Professor of Computer Science, Loyola University Chicago
 
 **Other Contributors**
 
