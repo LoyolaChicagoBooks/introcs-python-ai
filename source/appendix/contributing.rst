@@ -74,6 +74,18 @@ Pull requests should:
 We may edit, reorganize, or rewrite accepted contributions so they fit the
 book's voice, structure, and curricular goals.
 
+Contributor Identity
+--------------------
+
+For contributors whose work may be acknowledged in the book, we expect enough
+public identity information to support attribution and editorial review. This
+normally includes:
+
+- a GitHub profile;
+- a public institutional or personal web presence, such as a university,
+  industry, national laboratory, or professional website;
+- an `ORCID <https://orcid.org/>`_, which is optional but strongly encouraged.
+
 Use of AI Assistance
 --------------------
 
