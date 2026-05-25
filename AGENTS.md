@@ -261,11 +261,14 @@ Output:
 
 ### Code blocks
 
-- `.. code-block:: python` — all Python code
+- `.. code-block:: python` — short Python fragments, syntax examples,
+  intentionally incomplete code, review questions, labs, and exercises
+- `.. literalinclude::` — longer runnable examples from
+  `examples/introcs-python/<chapter>/`; use excerpt markers such as
+  `# start: name` / `# end: name` when a section shows one part of a larger file
 - `.. code-block:: none` — output, shell commands, syntax diagrams
 - `.. code-block:: bash` — shell/Linux commands
 - Always precede output blocks with a plain `Output:` line (not a directive)
-- No `.. literalinclude::` — all code is inline
 
 ### Review questions
 

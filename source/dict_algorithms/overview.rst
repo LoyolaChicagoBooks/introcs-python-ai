@@ -22,18 +22,10 @@ Counting with Dictionaries
 
 Counting occurrences is one of the most common uses of a dictionary.
 
-.. code-block:: python
-
-   words = ["apple", "banana", "apple", "pear", "banana", "apple"]
-   counts = {}
-
-   for w in words:
-       if w not in counts:
-           counts[w] = 1
-       else:
-           counts[w] += 1
-
-   print(counts)
+.. literalinclude:: ../../examples/introcs-python/dict_algorithms/patterns.py
+   :language: python
+   :start-after: # start: counting
+   :end-before: # end: counting
 
 Output:
 
@@ -59,16 +51,10 @@ Filtering Dictionaries
 
 Build a new dictionary containing only the key/value pairs that satisfy a condition:
 
-.. code-block:: python
-
-   scores = {"Alice": 95, "Bob": 82, "Carol": 71, "Diana": 99}
-   high_scores = {}
-
-   for name, score in scores.items():
-       if score > 80:
-           high_scores[name] = score
-
-   print(high_scores)
+.. literalinclude:: ../../examples/introcs-python/dict_algorithms/patterns.py
+   :language: python
+   :start-after: # start: filtering
+   :end-before: # end: filtering
 
 Output:
 
@@ -83,18 +69,10 @@ Grouping with Dictionaries
 
 Grouping places items that share a characteristic into lists under a common key.
 
-.. code-block:: python
-
-   words = ["apple", "ant", "banana", "berry", "car", "cat"]
-   groups = {}
-
-   for w in words:
-       first = w[0]
-       if first not in groups:
-           groups[first] = []
-       groups[first].append(w)
-
-   print(groups)
+.. literalinclude:: ../../examples/introcs-python/dict_algorithms/patterns.py
+   :language: python
+   :start-after: # start: grouping
+   :end-before: # end: grouping
 
 Output:
 
@@ -220,20 +198,10 @@ API responses). Several dictionary algorithms apply naturally to this structure.
 
 **Frequency count over a field:**
 
-.. code-block:: python
-
-   people = [
-       {"name": "Alice", "age": 30},
-       {"name": "Bob",   "age": 25},
-       {"name": "Cara",  "age": 30},
-   ]
-
-   freq = {}
-   for p in people:
-       age = p["age"]
-       freq[age] = freq.get(age, 0) + 1
-
-   print(freq)
+.. literalinclude:: ../../examples/introcs-python/dict_algorithms/patterns.py
+   :language: python
+   :start-after: # start: list_of_dicts
+   :end-before: # end: list_of_dicts
 
 Output:
 
@@ -269,15 +237,10 @@ Group by Length (Practice)
 
 Implement a function that groups words by their length:
 
-.. code-block:: python
-
-   def group_by_length(words):
-       groups = {}
-       for w in words:
-           groups.setdefault(len(w), []).append(w)
-       return groups
-
-   print(group_by_length(["tea", "to", "apple", "jam", "bag"]))
+.. literalinclude:: ../../examples/introcs-python/dict_algorithms/patterns.py
+   :language: python
+   :start-after: # start: group_by_length
+   :end-before: # end: group_by_length
 
 Output:
 

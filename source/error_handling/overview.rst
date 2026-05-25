@@ -141,17 +141,10 @@ Raising Exceptions
 You can raise exceptions deliberately using ``raise`` to signal that something is
 wrong:
 
-.. code-block:: python
-
-   def safe_divide(a, b):
-       if b == 0:
-           raise ValueError("Cannot divide by zero.")
-       return a / b
-
-   try:
-       result = safe_divide(10, 0)
-   except ValueError as e:
-       print(e)
+.. literalinclude:: ../../examples/introcs-python/error_handling/safe_divide.py
+   :language: python
+   :start-after: # start: safe_divide
+   :end-before: # end: safe_divide
 
 Output:
 
