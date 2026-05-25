@@ -34,6 +34,10 @@ For information about proposing future changes or additions, see
 
 - George K. Thiruvathukal, Professor of Computer Science, Loyola University Chicago
 
+.. todo::
+
+   Organize all contributors below into a table of contributors.
+
 **Contributing Co-Authors**
 
 The chapters on hardware and software, the terminal, modules and scope, user
