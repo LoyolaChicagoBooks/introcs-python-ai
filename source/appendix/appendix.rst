@@ -6,6 +6,7 @@ Appendix
 
    lesson_plan
    contributors
+   contributing
    acknowledgments
    cmdline
    precedence

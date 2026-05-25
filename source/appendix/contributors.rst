@@ -27,6 +27,9 @@ This book is a collaborative effort of the Computer Science Department
 at Loyola University Chicago.  The following people have made significant
 contributions as authors, editors, and reviewers.
 
+For information about proposing future changes or additions, see
+:ref:`Contributing-Guidelines`.
+
 **Lead Editor and Co-Author**
 
 - George K. Thiruvathukal, Professor of Computer Science, Loyola University Chicago
