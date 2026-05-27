@@ -70,44 +70,55 @@ analysis, and numerical methods in these historical designs is a useful
 reminder that introductory programming was originally connected to a wider
 mathematical and computational arc, not only to software construction.
 
-Hemmendinger's summary of Curriculum 78 gives the following CS1-CS8 sequence:
+Hemmendinger's summary of Curriculum 78 gives the following CS1-CS8 sequence.
+The final column gives the nearest current Loyola COMP course numbers from the
+`undergraduate catalog <https://catalog.luc.edu/course-descriptions/comp/>`_.
 
 .. list-table::
    :header-rows: 1
-   :widths: 10 32 58
+   :widths: 10 28 44 18
 
    * - Label
      - Curriculum 78 Topic
      - Historical Role
+     - Loyola COMP
    * - **CS1**
      - Programming I
      - First programming course; beginning of the required CS core.
+     - COMP 170
    * - **CS2**
      - Programming II
      - Continuation of programming, typically deepening control structures,
        modularity, and program design.
+     - COMP 271; COMP 313
    * - **CS3**
      - Computer Systems
      - Introduction to systems concepts before the more focused organization
        and architecture courses.
+     - COMP 264
    * - **CS4**
      - Computer Organization
      - Machine organization and the hardware/software boundary.
+     - COMP 264; COMP 362
    * - **CS5**
      - File Processing
      - Application-oriented data storage and processing, reflecting the
        importance of files and records in computing practice.
+     - COMP 251; COMP 353
    * - **CS6**
      - Operating Systems and Computer Architecture I
      - Systems-level continuation, joining operating systems with architecture.
+     - COMP 310; COMP 362
    * - **CS7**
      - Data Structures and Algorithm Analysis
      - The advanced data structures and algorithms course in the intermediate
        core.
+     - COMP 271; COMP 272; COMP 363
    * - **CS8**
      - Programming Language Organization
      - Programming-language concepts and organization, setting up later work
        in language theory and implementation.
+     - COMP 371; COMP 382
 
 Current ACM/IEEE curriculum guidelines no longer appear to organize the
 undergraduate curriculum along the lines of a fixed CS1-CS8 course sequence.
