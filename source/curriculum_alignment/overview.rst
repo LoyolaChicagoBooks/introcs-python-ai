@@ -42,11 +42,79 @@ The CS Course Sequence
    CS1; Introduction to Computer Science
    CS2; Data Structures
    CS3; Algorithms
+   CS1-CS8 course sequence
+   numerical methods; curriculum history
+   ACM/IEEE curriculum history
    course sequence; CS curriculum
 
 The ACM/IEEE curriculum frameworks assume a standard undergraduate CS course
-progression. The table below maps the informal labels used in this chapter
-to their typical course titles and content focus.
+progression, but the naming of that progression has changed over time.
+
+Historically, these labels were more extensive and more concrete than the
+CS0-CS3 shorthand commonly used today. In the 1978 ACM curriculum, for
+example, CS1 through CS8 denoted a sequence from programming through computer
+systems, organization, data structures and algorithm analysis, and programming
+language organization. Hemmendinger's historical review of the ACM and IEEE-CS
+curriculum guidelines notes that earlier curriculum reports also gave
+substantial attention to numerical computation: Curriculum 68 included
+multiple numerical analysis courses, and Curriculum 78 retained advanced
+numerical mathematics in analysis and linear algebra alongside advanced data
+structures and algorithms (`author copy <https://cs.union.edu/~hemmendd/History/curric-hist.pdf>`__,
+`CACM DOI <https://doi.org/10.1145/1230819.1230838>`__). In our view, some of
+this breadth was muted over time as the discipline reconsidered which
+mathematics belonged inside the CS curriculum and which belonged in supporting
+mathematics courses. The persistence of advanced data structures, algorithm
+analysis, and numerical methods in these historical designs is a useful
+reminder that introductory programming was originally connected to a wider
+mathematical and computational arc, not only to software construction.
+
+Hemmendinger's summary of Curriculum 78 gives the following CS1-CS8 sequence:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 10 32 58
+
+   * - Label
+     - Curriculum 78 Topic
+     - Historical Role
+   * - **CS1**
+     - Programming I
+     - First programming course; beginning of the required CS core.
+   * - **CS2**
+     - Programming II
+     - Continuation of programming, typically deepening control structures,
+       modularity, and program design.
+   * - **CS3**
+     - Computer Systems
+     - Introduction to systems concepts before the more focused organization
+       and architecture courses.
+   * - **CS4**
+     - Computer Organization
+     - Machine organization and the hardware/software boundary.
+   * - **CS5**
+     - File Processing
+     - Application-oriented data storage and processing, reflecting the
+       importance of files and records in computing practice.
+   * - **CS6**
+     - Operating Systems and Computer Architecture I
+     - Systems-level continuation, joining operating systems with architecture.
+   * - **CS7**
+     - Data Structures and Algorithm Analysis
+     - The advanced data structures and algorithms course in the intermediate
+       core.
+   * - **CS8**
+     - Programming Language Organization
+     - Programming-language concepts and organization, setting up later work
+       in language theory and implementation.
+
+Current ACM/IEEE curriculum guidelines no longer appear to organize the
+undergraduate curriculum along the lines of a fixed CS1-CS8 course sequence.
+They instead describe knowledge areas, knowledge units, outcomes, and
+competencies that departments may assemble into courses in different ways. The
+rest of this chapter uses the more common contemporary shorthand of CS0, CS1,
+CS2, CS3, and CS3+ only to indicate approximate course level. The table below
+explains how those labels are used in this book; it is not meant to replace the
+official ACM/IEEE knowledge-area structure.
 
 .. list-table::
    :header-rows: 1
