@@ -10,9 +10,6 @@
 Alignment with ACM/IEEE Curriculum Standards
 ============================================
 
-.. note::
-   *Source:* Python-specific — no direct C# equivalent.
-
 This chapter maps the content of *Introduction to Computer Science in Python*
 against the two most widely used computing curriculum frameworks published by
 the ACM and IEEE Computer Society:
@@ -109,12 +106,17 @@ Hemmendinger's summary of Curriculum 78 gives the following CS1-CS8 sequence:
 
 Current ACM/IEEE curriculum guidelines no longer appear to organize the
 undergraduate curriculum along the lines of a fixed CS1-CS8 course sequence.
-They instead describe knowledge areas, knowledge units, outcomes, and
-competencies that departments may assemble into courses in different ways. The
-rest of this chapter uses the more common contemporary shorthand of CS0, CS1,
-CS2, CS3, and CS3+ only to indicate approximate course level. The table below
-explains how those labels are used in this book; it is not meant to replace the
-official ACM/IEEE knowledge-area structure.
+This may be explained in part by the way some topics have been combined or
+redistributed in modern practice. For example, material that once appeared
+across CS3, CS4, and CS5 is often distributed across systems programming,
+computer organization, data management, and operating systems courses today.
+
+Modern ACM/IEEE guidelines instead describe knowledge areas, knowledge units,
+outcomes, and competencies that departments may assemble into courses in
+different ways. The rest of this chapter uses the more common contemporary
+shorthand of CS0, CS1, CS2, CS3, and CS3+ only to indicate approximate course
+level. The table below explains how those labels are used in this book; it is
+not meant to replace the official ACM/IEEE knowledge-area structure.
 
 .. list-table::
    :header-rows: 1
