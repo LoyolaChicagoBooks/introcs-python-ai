@@ -341,6 +341,15 @@ There are three main categories of software:
   Examples: antivirus tools, backup utilities, file compression, disk cleanup.
 
 .. index:: systems programming languages, C language, C++ language, Java language, Rust language, assembly language, Ada language, Go language, Python; as high-level language
+   Rust language; systems programming
+   Go language; systems programming
+   Valgrind
+   C language; memory safety
+   C language; embedded systems
+   unsafe code
+   foreign-function interface
+   microcontrollers
+   accelerators; specialized hardware
    ACM-IEEE CS2013; PL/Languages Programming Languages: Language Translation and Execution
    ACM-IEEE CS2023; PL/Languages Programming Languages: Language Translation and Execution
 
@@ -367,22 +376,42 @@ call for different tools:
   backend systems and Android app development, and influenced languages like
   C# and Kotlin.
 
-- **Rust** — a modern systems language designed for memory safety without a
-  garbage collector. Increasingly used in OS components, browsers, and
-  infrastructure where C/C++ were previously the only options.
+- **Rust** — a `modern systems language <https://www.rust-lang.org/>`_
+  designed for memory safety without a garbage collector. Increasingly used in
+  OS components, browsers, and infrastructure where C/C++ were previously the
+  only options.
 
 - **Ada** — developed by the U.S. Department of Defense for safety-critical and
   mission-critical systems: avionics, defense, and medical devices.
 
-- **Go** — a modern, compiled language from Google designed for simplicity and
-  performance. Its efficiency and built-in concurrency support have made it popular
-  for networking, cloud infrastructure, and server-side systems programming.
+- **Go** — a `modern, compiled language from Google <https://go.dev/>`_
+  designed for simplicity and performance. Its efficiency and built-in
+  concurrency support have made it popular for networking, cloud
+  infrastructure, and server-side systems programming.
 
 - **Python** — the language you are learning in this course — sits at the opposite
   end of the spectrum from assembly. It is interpreted, memory-managed, and highly
   expressive. Python trades raw performance for readability and development speed,
   making it ideal for data analysis, scripting, automation, and applications.
   Many systems are built with a fast C/Rust core and a Python layer on top.
+
+Modern practice is increasingly interested in newer systems languages such as
+`Rust <https://www.rust-lang.org/>`_ and `Go <https://go.dev/>`_. Both are
+promising and already see significant use, especially in systems and software
+engineering tools. C++, meanwhile, was designed in part as a "better C," and it
+remains essential in many high-performance domains, but the experience of using
+C++ can vary across platforms, compilers, libraries, and project conventions.
+There is still value in the clarity of C's programming model: with discipline,
+careful testing, and tools such as `Valgrind <https://valgrind.org/>`_, it is
+possible to write safer C code. Knowing C well also helps when learning C++,
+because many of C++'s lower-level abstractions build directly on ideas from C.
+
+Rust and Go are unlikely to replace C everywhere, especially in embedded
+systems, microcontrollers, accelerators, device drivers, firmware, and other
+specialized hardware contexts. Even when a modern language provides an
+``unsafe`` mode or a foreign-function interface, you may still need to
+understand the lower-level programming abstractions that C exposes directly:
+pointers, memory layout, calling conventions, and sometimes assembly language.
 
 .. index:: input-process-output model, hardware; software interaction
 
