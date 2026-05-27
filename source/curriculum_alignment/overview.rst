@@ -42,6 +42,11 @@ The CS Course Sequence
    CS1-CS8 course sequence
    numerical methods; curriculum history
    ACM/IEEE curriculum history
+   ACM Curriculum 68
+   ACM Curriculum 78
+   Hemmendinger, David
+   Hemmendinger; curriculum history
+   ACM/IEEE-CS curriculum guidelines; history
    course sequence; CS curriculum
 
 The ACM/IEEE curriculum frameworks assume a standard undergraduate CS course
