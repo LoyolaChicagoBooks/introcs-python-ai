@@ -43,6 +43,7 @@ Introduction to Computer Science in Python
    datastructures/datastructures
    ui/overview
    case_studies/case_studies
+   interactive/interactive
    curriculum_alignment/overview
    appendix/appendix
    genindex

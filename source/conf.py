@@ -3,7 +3,7 @@
 import sys, os, os.path
 from datetime import date
 
-extensions = ['sphinx.ext.todo', 'sphinx.ext.mathjax', 'sphinx.ext.extlinks']
+extensions = ['sphinx.ext.todo', 'sphinx.ext.mathjax', 'sphinx.ext.extlinks', 'jupyterlite_sphinx']
 
 extlinks = {
     'repsrc': (
