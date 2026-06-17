@@ -100,6 +100,7 @@ Every RST file contributed by PhD students carries a `.. note::` attribution:
 | Data Structures | `source/datastructures/` |
 | Terminal User Interfaces (Rich/Textual) | `source/ui/` |
 | Case Studies | `source/case_studies/` |
+| Interactive Python in the Browser (JupyterLite/Pyodide) | `source/interactive/` |
 
 ### Stub chapters (outlined, ready to write)
 
@@ -199,6 +200,24 @@ make epub
 The PDF uses **xelatex** (not pdflatex) because the book contains Unicode
 characters throughout. The `texlive-full` CI image already includes all
 required fonts — no `tlmgr install` step is needed.
+
+### JupyterLite (interactive chapter)
+
+The `source/interactive/` chapter embeds live, in-browser Python REPLs with the
+`.. replite::` directive from **jupyterlite-sphinx** (Pyodide/WebAssembly). This
+means:
+
+- `jupyterlite-sphinx` and `jupyterlite-pyodide-kernel` are required and are
+  listed in `requirements.txt`. `conf.py` enables the `jupyterlite_sphinx`
+  extension; a clean `pip install -r requirements.txt` is needed for the build.
+- Every HTML build runs an embedded JupyterLite build (visible as
+  `[jupyterlite-sphinx] Running JupyterLite build`) and generates
+  `source/.jupyterlite.doit.db` and `source/_contents/` — both are build
+  artifacts and are **gitignored**; do not commit them.
+- The REPLs need to be served over HTTP to work — open the built page through a
+  local server (`python -m http.server` from `build/html`), not via `file://`,
+  or the Pyodide/WebAssembly fetches fail. numpy and matplotlib run inside the
+  browser via Pyodide, so they do not need to be in `requirements.txt`.
 
 ---
 
