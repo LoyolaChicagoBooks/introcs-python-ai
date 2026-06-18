@@ -244,7 +244,17 @@ with the **``.. try_examples::``** directive from jupyterlite-sphinx. It renders
 the code in every format and adds a **"Try it live ▶"** button (HTML only) that
 swaps the code for a live, editable JupyterLite cell. This is the standard
 mechanism for in-text runnable snippets; prefer it over ``.. replite::`` outside
-the interactive chapter. Conventions:
+the interactive chapter.
+
+The feature is introduced to readers early, in
+`source/context/intro.rst` (the "Running Code in Your Browser" section, label
+``try-it-live``) — a short explanation plus a live hello/``datetime.now()``
+demo, well before the first toggle appears in `data/`. The first toggle in
+`data/arithmetic.rst` links back to that section. The dedicated
+`source/interactive/` chapter (label ``Interactive-Python-Overview``) remains
+the deep-dive.
+
+Conventions:
 
 - **The directive content must be doctest format** (``>>>`` statements, ``...``
   continuation lines, then expected output with no prompt). A multiline suite

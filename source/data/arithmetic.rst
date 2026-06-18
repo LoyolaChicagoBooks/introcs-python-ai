@@ -16,7 +16,8 @@ Testing Expressions in the Shell
 
 Python's interactive shell is perfect for trying out arithmetic.  Start it
 with ``python3`` and type expressions at the ``>>>`` prompt.  Press **Try it
-live** to evaluate these expressions and edit the numbers:
+live** to evaluate these expressions and edit the numbers — if this is the first
+one you have seen, :ref:`here is how it works <try-it-live>`:
 
 .. try_examples::
    :height: 220px

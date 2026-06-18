@@ -65,6 +65,41 @@ the ``>>>`` prompt throughout the book to show interactive examples.
 
 To exit the shell, type ``quit()`` or press Ctrl-D.
 
+.. index:: JupyterLite, Pyodide, Try it live, browser; running Python
+
+.. _try-it-live:
+
+Running Code in Your Browser
+----------------------------
+
+Many examples in this book sit behind a **Try it live ▶** button.  Click it and
+the example turns into a live, editable Python cell that runs right on the page
+— no installation, no account, and nothing sent to a server.  This is powered by
+`JupyterLite <https://jupyterlite.readthedocs.io>`_ and
+`Pyodide <https://pyodide.org>`_ (a build of Python that runs inside your web
+browser).  Edit the code, run it again, and experiment freely; your changes are
+not saved, so reload the page to start over.  The first run takes a few seconds
+while Python loads.
+
+Here is a tiny example to try right now.  Click **Try it live**, run it, then
+change the greeting and run it again — the date and time will be the moment
+*you* run it:
+
+.. try_examples::
+   :height: 240px
+
+   >>> print("Hello, world!")
+   Hello, world!
+   >>> from datetime import datetime
+   >>> print("The current date and time is", datetime.now())
+   The current date and time is 2026-06-18 09:15:42.531809
+
+The time shown above is only a sample; running the cell prints your computer's
+current date and time.  The :ref:`Interactive-Python-Overview` chapter covers
+this feature in more depth, including its limitations — for example, examples
+that read files or use the network cannot run in the browser.  For coursework
+you will still use a local Python installation, as described above.
+
 .. _alt-formats:
 
 Alternate Formats
