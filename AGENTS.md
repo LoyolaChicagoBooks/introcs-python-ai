@@ -122,7 +122,7 @@ Every RST file contributed by PhD students carries a `.. note::` attribution:
 | Data Structures | `source/datastructures/` |
 | Terminal User Interfaces (Rich/Textual) | `source/ui/` |
 | Case Studies | `source/case_studies/` |
-| Interactive Python in the Browser (JupyterLite/Pyodide) | `source/interactive/` |
+| Functional Programming | `source/functional/` |
 
 ### Stub chapters (outlined, ready to write)
 
@@ -223,11 +223,10 @@ The PDF uses **xelatex** (not pdflatex) because the book contains Unicode
 characters throughout. The `texlive-full` CI image already includes all
 required fonts — no `tlmgr install` step is needed.
 
-### JupyterLite (interactive chapter)
+### JupyterLite (in-browser execution)
 
-The `source/interactive/` chapter embeds live, in-browser Python REPLs with the
-`.. replite::` directive from **jupyterlite-sphinx** (Pyodide/WebAssembly). This
-means:
+Runnable snippets throughout the book execute in the browser via
+**jupyterlite-sphinx** (Pyodide/WebAssembly). This means:
 
 - `jupyterlite-sphinx` and `jupyterlite-pyodide-kernel` are required and are
   listed in `requirements.txt`. `conf.py` enables the `jupyterlite_sphinx`
@@ -236,28 +235,24 @@ means:
   `[jupyterlite-sphinx] Running JupyterLite build`) and generates
   `source/.jupyterlite.doit.db` and `source/_contents/` — both are build
   artifacts and are **gitignored**; do not commit them.
-- The REPLs need to be served over HTTP to work — open the built page through a
+- The cells need to be served over HTTP to work — open the built page through a
   local server (`python -m http.server` from `build/html`), not via `file://`,
   or the Pyodide/WebAssembly fetches fail. numpy and matplotlib run inside the
   browser via Pyodide, so they do not need to be in `requirements.txt`.
 
-#### Runnable snippets in regular chapters (``.. try_examples::``)
+#### Runnable snippets (``.. try_examples::``)
 
-Beyond the dedicated `source/interactive/` chapter (which uses ``.. replite::``
-REPL widgets), individual short examples throughout the book are made runnable
-with the **``.. try_examples::``** directive from jupyterlite-sphinx. It renders
-the code in every format and adds a **"Try it live ▶"** button (HTML only) that
-swaps the code for a live, editable JupyterLite cell. This is the standard
-mechanism for in-text runnable snippets; prefer it over ``.. replite::`` outside
-the interactive chapter.
+Individual short examples throughout the book are made runnable with the
+**``.. try_examples::``** directive from jupyterlite-sphinx. It renders the code
+in every format and adds a **"Try it live ▶"** button (HTML only) that swaps the
+code for a live, editable JupyterLite cell. This is the single mechanism for
+in-text runnable snippets (the older ``.. replite::`` widgets and the dedicated
+interactive chapter that used them have been removed).
 
 The feature is introduced to readers early, in
 `source/context/intro.rst` (the "Running Code in Your Browser" section, label
 ``try-it-live``) — a short explanation plus a live hello/``datetime.now()``
-demo, well before the first toggle appears in `data/`. The first toggle in
-`data/arithmetic.rst` links back to that section. The dedicated
-`source/interactive/` chapter (label ``Interactive-Python-Overview``) remains
-the deep-dive.
+demo, well before the first toggle appears in `data/`.
 
 Conventions:
 
@@ -291,12 +286,12 @@ Conventions:
   drops raw HTML automatically.
 
 Coverage is **complete** across all chapters with self-contained Python
-(~216 ``try_examples`` in ~49 files): `data`, `functions`, `basicstringops`,
+(~230 ``try_examples`` in ~53 files): `data`, `functions`, `basicstringops`,
 `decisions`, `while`, `for`, `modules`, `lists`, `tuples`, `dictionaries`,
 `lists_of_dicts`, `dict_algorithms`, `simulation`, `classes`, `recursion`,
-`datastructures`, `error_handling`. The interim ``.. replite::`` widgets have all
-been converted; ``.. replite::`` now appears only in the dedicated
-`source/interactive/` chapter.
+`functional`, `datastructures`, `error_handling`. ``.. try_examples::`` is the
+only in-browser execution mechanism; the older ``.. replite::`` widgets and the
+dedicated interactive chapter that used them have been removed.
 
 Chapters intentionally left without ``try_examples`` (nothing self-contained to
 run): `user_input`, `internet_data` (network), `testing` (needs a pytest

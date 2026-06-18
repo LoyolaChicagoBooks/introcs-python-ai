@@ -95,10 +95,9 @@ change the greeting and run it again — the date and time will be the moment
    The current date and time is 2026-06-18 09:15:42.531809
 
 The time shown above is only a sample; running the cell prints your computer's
-current date and time.  The :ref:`Interactive-Python-Overview` chapter covers
-this feature in more depth, including its limitations — for example, examples
-that read files or use the network cannot run in the browser.  For coursework
-you will still use a local Python installation, as described above.
+current date and time.  This in-browser execution has limits — examples that
+read files or use the network cannot run there — so for coursework you will
+still use a local Python installation, as described above.
 
 .. _alt-formats:
 
