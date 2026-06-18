@@ -1,0 +1,15 @@
+/* EPUB-only overrides.
+ *
+ * jupyterlite-sphinx "Try Examples" emits its run button and iframe as raw
+ * HTML.  The LaTeX/PDF builder drops raw HTML automatically, but the EPUB
+ * builder's format is also "html", so the (non-functional) button would
+ * otherwise appear in the EPUB.  Hide it so EPUB readers see only the code,
+ * exactly like the PDF.  This file is loaded via epub_css_files in conf.py and
+ * therefore never affects the website build.
+ */
+
+.try_examples_button_container,
+.try_examples_outer_iframe,
+.jupyterlite_sphinx_iframe_container {
+    display: none !important;
+}

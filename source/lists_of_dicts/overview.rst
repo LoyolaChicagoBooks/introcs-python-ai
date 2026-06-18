@@ -89,38 +89,54 @@ Accessing Data
 --------------
 
 Accessing data in a list of dictionaries chains two operations: a list index, then
-a dictionary key.
+a dictionary key.  Try it live and index a different student:
 
-.. code-block:: python
+.. try_examples::
+   :height: 300px
 
-   first_name = students[0]["name"]
-   last_gpa   = students[-1]["gpa"]
+   >>> students = [
+   ...     {"name": "Alice Johnson", "age": 20, "major": "Computer Science", "gpa": 3.8},
+   ...     {"name": "Bob Martinez", "age": 22, "major": "Mathematics", "gpa": 3.6},
+   ...     {"name": "Charlie Davis", "age": 21, "major": "Undecided", "gpa": 3.9},
+   ... ]
+   >>> first_name = students[0]["name"]
+   >>> last_gpa = students[-1]["gpa"]
+   >>> print(first_name)
+   Alice Johnson
+   >>> print(last_gpa)
+   3.9
 
-   print(first_name)   # Alice Johnson
-   print(last_gpa)     # 3.9
+To safely access a key that might be missing, use ``.get()``, which returns a
+default instead of raising ``KeyError``:
 
-To safely access a key that might be missing, use ``.get()``:
+.. try_examples::
+   :height: 280px
 
-.. code-block:: python
-
-   email = students[0].get("email", "not provided")
+   >>> students = [
+   ...     {"name": "Alice Johnson", "age": 20, "major": "Computer Science", "gpa": 3.8},
+   ... ]
+   >>> students[0].get("email", "not provided")
+   'not provided'
 
 .. index:: lists of dictionaries; iteration, for; dict records
 
 Iterating Over Records
 -----------------------
 
-A ``for`` loop processes every record in the collection:
+A ``for`` loop processes every record in the collection.  Run it and edit the
+format string:
 
-.. code-block:: python
+.. try_examples::
+   :height: 320px
 
-   for student in students:
-       print(f"{student['name']} ({student['major']}) — GPA: {student['gpa']}")
-
-Output:
-
-.. code-block:: none
-
+   >>> students = [
+   ...     {"name": "Alice Johnson", "age": 20, "major": "Computer Science", "gpa": 3.8},
+   ...     {"name": "Bob Martinez", "age": 22, "major": "Mathematics", "gpa": 3.6},
+   ...     {"name": "Charlie Davis", "age": 21, "major": "Undecided", "gpa": 3.9},
+   ... ]
+   >>> for student in students:
+   ...     print(f"{student['name']} ({student['major']}) — GPA: {student['gpa']}")
+   ...
    Alice Johnson (Computer Science) — GPA: 3.8
    Bob Martinez (Mathematics) — GPA: 3.6
    Charlie Davis (Undecided) — GPA: 3.9
@@ -130,20 +146,38 @@ Output:
 Filtering Records
 -----------------
 
-Collect records that meet a condition into a new list:
+Collect records that meet a condition into a new list.  Run it and change the
+GPA cutoff:
 
-.. code-block:: python
+.. try_examples::
+   :height: 340px
 
-   honor_roll = []
-   for student in students:
-       if student["gpa"] >= 3.7:
-           honor_roll.append(student)
+   >>> students = [
+   ...     {"name": "Alice Johnson", "age": 20, "major": "Computer Science", "gpa": 3.8},
+   ...     {"name": "Bob Martinez", "age": 22, "major": "Mathematics", "gpa": 3.6},
+   ...     {"name": "Charlie Davis", "age": 21, "major": "Undecided", "gpa": 3.9},
+   ... ]
+   >>> honor_roll = []
+   >>> for student in students:
+   ...     if student["gpa"] >= 3.7:
+   ...         honor_roll.append(student)
+   ...
+   >>> [s["name"] for s in honor_roll]
+   ['Alice Johnson', 'Charlie Davis']
 
-Or using a list comprehension:
+Or using a list comprehension, which expresses the same filter in one line:
 
-.. code-block:: python
+.. try_examples::
+   :height: 300px
 
-   honor_roll = [s for s in students if s["gpa"] >= 3.7]
+   >>> students = [
+   ...     {"name": "Alice Johnson", "age": 20, "major": "Computer Science", "gpa": 3.8},
+   ...     {"name": "Bob Martinez", "age": 22, "major": "Mathematics", "gpa": 3.6},
+   ...     {"name": "Charlie Davis", "age": 21, "major": "Undecided", "gpa": 3.9},
+   ... ]
+   >>> honor_roll = [s for s in students if s["gpa"] >= 3.7]
+   >>> [s["name"] for s in honor_roll]
+   ['Alice Johnson', 'Charlie Davis']
 
 .. index:: lists of dictionaries; search, linear search; dict records
 
@@ -162,26 +196,47 @@ Find the first record that matches a condition:
 Updating a Record
 -----------------
 
-Locate the record and assign a new value to its key:
+Locate the record and assign a new value to its key.  Run it and confirm the
+change took effect:
 
-.. code-block:: python
+.. try_examples::
+   :height: 320px
 
-   for student in students:
-       if student["name"] == "Alice Johnson":
-           student["gpa"] = 3.9
-           break
+   >>> students = [
+   ...     {"name": "Alice Johnson", "age": 20, "major": "Computer Science", "gpa": 3.8},
+   ...     {"name": "Bob Martinez", "age": 22, "major": "Mathematics", "gpa": 3.6},
+   ...     {"name": "Charlie Davis", "age": 21, "major": "Undecided", "gpa": 3.9},
+   ... ]
+   >>> for student in students:
+   ...     if student["name"] == "Alice Johnson":
+   ...         student["gpa"] = 3.9
+   ...         break
+   ...
+   >>> students[0]["gpa"]
+   3.9
 
 .. index:: lists of dictionaries; sorting, sorted(); key function, lambda; sort key
 
 Sorting
 -------
 
-``sorted()`` accepts a ``key`` function that extracts the value to sort by:
+``sorted()`` accepts a ``key`` function that extracts the value to sort by.  Run
+it and try sorting by ``age`` instead:
 
-.. code-block:: python
+.. try_examples::
+   :height: 340px
 
-   by_gpa  = sorted(students, key=lambda s: s["gpa"], reverse=True)
-   by_name = sorted(students, key=lambda s: s["name"])
+   >>> students = [
+   ...     {"name": "Alice Johnson", "age": 20, "major": "Computer Science", "gpa": 3.8},
+   ...     {"name": "Bob Martinez", "age": 22, "major": "Mathematics", "gpa": 3.6},
+   ...     {"name": "Charlie Davis", "age": 21, "major": "Undecided", "gpa": 3.9},
+   ... ]
+   >>> by_gpa = sorted(students, key=lambda s: s["gpa"], reverse=True)
+   >>> by_name = sorted(students, key=lambda s: s["name"])
+   >>> [s["name"] for s in by_gpa]
+   ['Charlie Davis', 'Alice Johnson', 'Bob Martinez']
+   >>> [s["name"] for s in by_name]
+   ['Alice Johnson', 'Bob Martinez', 'Charlie Davis']
 
 .. index:: lists of dictionaries; grouping, dict.setdefault(); grouping
 

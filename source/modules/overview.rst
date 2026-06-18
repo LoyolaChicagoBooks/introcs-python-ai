@@ -115,23 +115,20 @@ resolves variable names using the **LEGB rule**, searching in this order:
 3. **Global (G)** — at the top level of the module.
 4. **Built-in (B)** — Python's built-in names such as ``len`` and ``print``.
 
-.. code-block:: python
+Run this and watch which ``x`` wins:
 
-   x = 10          # global
+.. try_examples::
+   :height: 300px
 
-   def outer() -> None:
-       x = 20      # enclosing
-       def inner() -> None:
-           x = 30  # local
-           print(x)
-       inner()
-
-   outer()
-
-Output:
-
-.. code-block:: none
-
+   >>> x = 10          # global
+   >>> def outer() -> None:
+   ...     x = 20      # enclosing
+   ...     def inner() -> None:
+   ...         x = 30  # local
+   ...         print(x)
+   ...     inner()
+   ...
+   >>> outer()
    30
 
 Python finds ``x = 30`` at the local level and stops searching.
@@ -144,15 +141,20 @@ Variable Shadowing
 If a variable in an inner scope shares a name with one in an outer scope, it
 **shadows** the outer variable within that scope.
 
-.. code-block:: python
+Try it live and confirm the global ``x`` is untouched:
 
-   x = 5
-   def demo() -> None:
-       x = 10
-       print(x)   # prints 10, not 5
+.. try_examples::
+   :height: 260px
 
-   demo()
-   print(x)       # prints 5 — the global x is unchanged
+   >>> x = 5
+   >>> def demo() -> None:
+   ...     x = 10
+   ...     print(x)   # prints 10, not 5
+   ...
+   >>> demo()
+   10
+   >>> print(x)       # prints 5 — the global x is unchanged
+   5
 
 Use distinct variable names to avoid accidental shadowing.
 
@@ -170,21 +172,16 @@ Global Variables
 
 Declaring a variable ``global`` inside a function allows it to modify that variable in the enclosing module scope:
 
-.. code-block:: python
+.. try_examples::
+   :height: 260px
 
-   count = 0
-
-   def increment() -> None:
-       global count
-       count += 1
-
-   increment()
-   print(count)
-
-Output:
-
-.. code-block:: none
-
+   >>> count = 0
+   >>> def increment() -> None:
+   ...     global count
+   ...     count += 1
+   ...
+   >>> increment()
+   >>> print(count)
    1
 
 Without the ``global`` keyword, Python would treat ``count`` inside the function
@@ -198,22 +195,18 @@ Nonlocal Variables
 ``nonlocal`` is used in nested functions to modify a variable from the *enclosing*
 (not global) scope.
 
-.. code-block:: python
+.. try_examples::
+   :height: 300px
 
-   def outer() -> None:
-       x = 5
-       def inner() -> None:
-           nonlocal x
-           x += 1
-       inner()
-       print(x)
-
-   outer()
-
-Output:
-
-.. code-block:: none
-
+   >>> def outer() -> None:
+   ...     x = 5
+   ...     def inner() -> None:
+   ...         nonlocal x
+   ...         x += 1
+   ...     inner()
+   ...     print(x)
+   ...
+   >>> outer()
    6
 
 As a general rule, prefer returning values from functions rather than modifying

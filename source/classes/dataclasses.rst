@@ -44,19 +44,24 @@ This single declaration is equivalent to:
        def __eq__(self, other):
            return (self.name, self.phone, self.email) == (other.name, other.phone, other.email)
 
-Here we create a ``Contact`` instance and verify that display and equality work without any extra code:
+Here we create a ``Contact`` instance and verify that display and equality
+work without any extra code — run it to see the generated ``__repr__`` and
+``__eq__`` in action:
 
-.. code-block:: python
+.. try_examples::
+   :height: 280px
 
-   c = Contact("Marie Ortiz", "773-508-7890", "mortiz2@luc.edu")
-   print(c)
-   print(c == Contact("Marie Ortiz", "773-508-7890", "mortiz2@luc.edu"))
-
-Output:
-
-.. code-block:: none
-
+   >>> from dataclasses import dataclass
+   >>> @dataclass
+   ... class Contact:
+   ...     name: str
+   ...     phone: str
+   ...     email: str
+   ...
+   >>> c = Contact("Marie Ortiz", "773-508-7890", "mortiz2@luc.edu")
+   >>> print(c)
    Contact(name='Marie Ortiz', phone='773-508-7890', email='mortiz2@luc.edu')
+   >>> print(c == Contact("Marie Ortiz", "773-508-7890", "mortiz2@luc.edu"))
    True
 
 Default Values
@@ -64,23 +69,21 @@ Default Values
 
 .. index:: @dataclass; defaults
 
-Fields can have default values, just like function parameters:
+Fields can have default values, just like function parameters.  Run this and
+try omitting or supplying the coordinates:
 
-.. code-block:: python
+.. try_examples::
+   :height: 260px
 
-   @dataclass
-   class Point:
-       x: float = 0.0
-       y: float = 0.0
-
-   origin = Point()
-   p = Point(3.0, 4.0)
-   print(origin, p)
-
-Output:
-
-.. code-block:: none
-
+   >>> from dataclasses import dataclass
+   >>> @dataclass
+   ... class Point:
+   ...     x: float = 0.0
+   ...     y: float = 0.0
+   ...
+   >>> origin = Point()
+   >>> p = Point(3.0, 4.0)
+   >>> print(origin, p)
    Point(x=0.0, y=0.0) Point(x=3.0, y=4.0)
 
 Adding Methods
@@ -140,21 +143,20 @@ class body at all — you describe the fields in a single line:
    Point = namedtuple('Point', ['x', 'y'])
 
 ``Point`` is now a full type.  You create instances the same way you
-would call a constructor:
+would call a constructor.  Run this to see named-field and positional access
+side by side:
 
-.. code-block:: python
+.. try_examples::
+   :height: 280px
 
-   p = Point(3.0, 4.0)
-   print(p)
-   print(p.x, p.y)
-   print(p[0], p[1])   # positional access still works
-
-Output:
-
-.. code-block:: none
-
+   >>> from collections import namedtuple
+   >>> Point = namedtuple('Point', ['x', 'y'])
+   >>> p = Point(3.0, 4.0)
+   >>> print(p)
    Point(x=3.0, y=4.0)
+   >>> print(p.x, p.y)
    3.0 4.0
+   >>> print(p[0], p[1])   # positional access still works
    3.0 4.0
 
 Because a named tuple *is* a tuple, unpacking, indexing, and iteration
@@ -174,17 +176,15 @@ creation:
    # p.x = 5.0   # raises AttributeError
 
 Because they are immutable they are also *hashable*, so they can be
-used as dictionary keys, just like plain tuples:
+used as dictionary keys, just like plain tuples.  Run this to look one up:
 
-.. code-block:: python
+.. try_examples::
+   :height: 240px
 
-   labels = {Point(0, 0): "origin", Point(1, 0): "east"}
-   print(labels[Point(0, 0)])
-
-Output:
-
-.. code-block:: none
-
+   >>> from collections import namedtuple
+   >>> Point = namedtuple('Point', ['x', 'y'])
+   >>> labels = {Point(0, 0): "origin", Point(1, 0): "east"}
+   >>> print(labels[Point(0, 0)])
    origin
 
 Creating Modified Copies with ``_replace``
@@ -193,18 +193,17 @@ Creating Modified Copies with ``_replace``
 .. index:: namedtuple; _replace
 
 Since you cannot mutate a named tuple in place, the ``_replace`` method
-returns a *new* instance with chosen fields changed:
+returns a *new* instance with chosen fields changed.  Run this and note that
+``p`` is unchanged:
 
-.. code-block:: python
+.. try_examples::
+   :height: 240px
 
-   p = Point(3.0, 4.0)
-   q = p._replace(y=0.0)
-   print(p, q)
-
-Output:
-
-.. code-block:: none
-
+   >>> from collections import namedtuple
+   >>> Point = namedtuple('Point', ['x', 'y'])
+   >>> p = Point(3.0, 4.0)
+   >>> q = p._replace(y=0.0)
+   >>> print(p, q)
    Point(x=3.0, y=4.0) Point(x=3.0, y=0.0)
 
 Reworking the Contact Example
@@ -212,23 +211,17 @@ Reworking the Contact Example
 
 .. index:: namedtuple; Contact example
 
-The ``Contact`` class from the previous section becomes a one-liner:
+The ``Contact`` class from the previous section becomes a one-liner.  Run it:
 
-.. code-block:: python
+.. try_examples::
+   :height: 260px
 
-   from collections import namedtuple
-
-   Contact = namedtuple('Contact', ['name', 'phone', 'email'])
-
-   c = Contact("Marie Ortiz", "773-508-7890", "mortiz2@luc.edu")
-   print(c)
-   print(c.name)
-
-Output:
-
-.. code-block:: none
-
+   >>> from collections import namedtuple
+   >>> Contact = namedtuple('Contact', ['name', 'phone', 'email'])
+   >>> c = Contact("Marie Ortiz", "773-508-7890", "mortiz2@luc.edu")
+   >>> print(c)
    Contact(name='Marie Ortiz', phone='773-508-7890', email='mortiz2@luc.edu')
+   >>> print(c.name)
    Marie Ortiz
 
 This is ideal when a contact record is read-only data being passed
@@ -242,28 +235,22 @@ Reworking the Point Example
 .. index:: namedtuple; Point example
 
 ``Point`` as a named tuple gives you named-field access, a readable
-``repr``, equality comparison, and hashability — all for free:
+``repr``, equality comparison, and hashability — all for free.  Run it:
 
-.. code-block:: python
+.. try_examples::
+   :height: 320px
 
-   import math
-   from collections import namedtuple
-
-   Point = namedtuple('Point', ['x', 'y'])
-
-   def distance(p1: Point, p2: Point) -> float:
-       return math.sqrt((p1.x - p2.x)**2 + (p1.y - p2.y)**2)
-
-   origin = Point(0, 0)
-   p = Point(3, 4)
-   print(distance(origin, p))
-   print(origin == Point(0, 0))   # value equality, like tuples
-
-Output:
-
-.. code-block:: none
-
+   >>> import math
+   >>> from collections import namedtuple
+   >>> Point = namedtuple('Point', ['x', 'y'])
+   >>> def distance(p1: Point, p2: Point) -> float:
+   ...     return math.sqrt((p1.x - p2.x)**2 + (p1.y - p2.y)**2)
+   ...
+   >>> origin = Point(0, 0)
+   >>> p = Point(3, 4)
+   >>> print(distance(origin, p))
    5.0
+   >>> print(origin == Point(0, 0))   # value equality, like tuples
    True
 
 The trade-off: because ``namedtuple`` produces a true tuple subclass,

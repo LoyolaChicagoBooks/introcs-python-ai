@@ -31,27 +31,23 @@ Calling with an Argument
 When you call a function with a parameter, you supply an *argument* — the
 value to pass in:
 
-.. code-block:: python
+.. try_examples::
+   :height: 300px
 
-   happy_birthday("Emily")
-   print()
-   happy_birthday("Andre")
-
-Output:
-
-.. code-block:: none
-
+   >>> def happy_birthday(person):
+   ...     print("Happy Birthday to you!")
+   ...     print("Happy Birthday to you!")
+   ...     print(f"Happy Birthday, dear {person}.")
+   ...     print("Happy Birthday to you!")
+   ...
+   >>> happy_birthday("Emily")
    Happy Birthday to you!
    Happy Birthday to you!
    Happy Birthday, dear Emily.
    Happy Birthday to you!
 
-   Happy Birthday to you!
-   Happy Birthday to you!
-   Happy Birthday, dear Andre.
-   Happy Birthday to you!
-
-One function, two different results, because the argument differs.
+One function, but different results for different arguments.  Edit the call to
+``happy_birthday("Andre")`` and run it again to see.
 
 How it Works
 ------------

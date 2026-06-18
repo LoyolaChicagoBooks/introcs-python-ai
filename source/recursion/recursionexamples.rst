@@ -27,17 +27,20 @@ definition:
    gcd(a, 0) = a                  (base case)
    gcd(a, b) = gcd(b, a % b)     (recursive case)
 
-.. code-block:: python
+Run it below and try a few pairs of your own:
 
-   def gcd(a: int, b: int) -> int:
-       if b == 0:
-           return a
-       return gcd(b, a % b)
+.. try_examples::
+   :height: 240px
 
-.. code-block:: python
-
-   print(gcd(48, 18))   # 6
-   print(gcd(100, 75))  # 25
+   >>> def gcd(a: int, b: int) -> int:
+   ...     if b == 0:
+   ...         return a
+   ...     return gcd(b, a % b)
+   ...
+   >>> gcd(48, 18)
+   6
+   >>> gcd(100, 75)
+   25
 
 Each call reduces ``b`` toward 0 because ``a % b < b`` for any ``b > 0``.
 Python's standard library provides ``math.gcd`` which uses the same
@@ -122,33 +125,26 @@ Flattening a Nested List
 .. index:: flatten; recursive, nested list
 
 Some problems only make sense recursively.  Flattening an arbitrarily
-nested list has no clean iterative equivalent:
+nested list has no clean iterative equivalent.  For each element, the function
+checks whether it is itself a list.  If it is, it recurses into it; if not, it
+appends the value directly.  Any depth of nesting is handled naturally because
+the recursion keeps going until it reaches a non-list item.  Run it and try a
+more deeply nested list of your own:
 
-.. code-block:: python
+.. try_examples::
+   :height: 300px
 
-   def flatten(lst: list) -> list:
-       result = []
-       for item in lst:
-           if isinstance(item, list):
-               result.extend(flatten(item))
-           else:
-               result.append(item)
-       return result
-
-For each element, the function checks whether it is itself a list.  If it
-is, it recurses into it; if not, it appends the value directly.  Any depth
-of nesting is handled naturally because the recursion keeps going until it
-reaches a non-list item.
-
-.. code-block:: python
-
-   nested = [1, [2, 3], [4, [5, 6]], 7]
-   print(flatten(nested))
-
-Output:
-
-.. code-block:: none
-
+   >>> def flatten(lst: list) -> list:
+   ...     result = []
+   ...     for item in lst:
+   ...         if isinstance(item, list):
+   ...             result.extend(flatten(item))
+   ...         else:
+   ...             result.append(item)
+   ...     return result
+   ...
+   >>> nested = [1, [2, 3], [4, [5, 6]], 7]
+   >>> flatten(nested)
    [1, 2, 3, 4, 5, 6, 7]
 
 .. index:: pathlib; recursive traversal, file system; tree traversal
@@ -189,26 +185,24 @@ Memoisation with ``lru_cache``
 
 The naive recursive Fibonacci is exponential because it recomputes the
 same values repeatedly.  ``functools.lru_cache`` stores results
-automatically:
+automatically.  The ``@lru_cache`` decorator wraps ``fib`` so that the first
+time any value is computed it is stored; subsequent calls with the same argument
+return the cached result instantly.  The recursive structure of the code is
+unchanged — only its performance profile improves.  Run it and try ``fib(200)``,
+which would be hopeless without the cache:
 
-.. code-block:: python
+.. try_examples::
+   :height: 280px
 
-   from functools import lru_cache
-
-   @lru_cache(maxsize=None)
-   def fib(n: int) -> int:
-       if n <= 1:
-           return n
-       return fib(n - 1) + fib(n - 2)
-
-The ``@lru_cache`` decorator wraps ``fib`` so that the first time any value
-is computed it is stored; subsequent calls with the same argument return the
-cached result instantly.  The recursive structure of the code is unchanged —
-only its performance profile improves.
-
-.. code-block:: python
-
-   print(fib(50))   # 12586269025 — computed instantly
+   >>> from functools import lru_cache
+   >>> @lru_cache(maxsize=None)
+   ... def fib(n: int) -> int:
+   ...     if n <= 1:
+   ...         return n
+   ...     return fib(n - 1) + fib(n - 2)
+   ...
+   >>> fib(50)
+   12586269025
 
 With caching, each value of ``fib(n)`` is computed exactly once,
 reducing the total work to O(N).

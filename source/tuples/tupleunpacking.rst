@@ -13,16 +13,14 @@ Basic Unpacking
 
 .. index:: tuple unpacking; basic
 
-.. code-block:: python
+Try it live and unpack a tuple of your own:
 
-   point = (3, 7)
-   x, y = point
-   print(x, y)
+.. try_examples::
+   :height: 220px
 
-Output:
-
-.. code-block:: none
-
+   >>> point = (3, 7)
+   >>> x, y = point
+   >>> print(x, y)
    3 7
 
 The number of variables on the left must match the number of elements
@@ -33,18 +31,15 @@ Swapping Variables
 
 .. index:: swap; variables
 
-The cleanest way to swap two variables in Python uses tuple unpacking:
+The cleanest way to swap two variables in Python uses tuple unpacking.
+Try it live:
 
-.. code-block:: python
+.. try_examples::
+   :height: 220px
 
-   a, b = 10, 20
-   a, b = b, a
-   print(a, b)
-
-Output:
-
-.. code-block:: none
-
+   >>> a, b = 10, 20
+   >>> a, b = b, a
+   >>> print(a, b)
    20 10
 
 Python evaluates the right-hand side completely before assigning, so no
@@ -56,20 +51,16 @@ Unpacking Function Return Values
 .. index:: tuple; multiple return values
 
 A function can return multiple values as a tuple, and the caller can
-unpack them:
+unpack them.  Try it live and pass a different list:
 
-.. code-block:: python
+.. try_examples::
+   :height: 260px
 
-   def min_max(nums: list) -> tuple:
-       return min(nums), max(nums)
-
-   lo, hi = min_max([3, 1, 4, 1, 5, 9])
-   print(lo, hi)
-
-Output:
-
-.. code-block:: none
-
+   >>> def min_max(nums: list) -> tuple:
+   ...     return min(nums), max(nums)
+   ...
+   >>> lo, hi = min_max([3, 1, 4, 1, 5, 9])
+   >>> print(lo, hi)
    1 9
 
 Unpacking in ``for`` Loops with ``zip()``
@@ -78,20 +69,16 @@ Unpacking in ``for`` Loops with ``zip()``
 .. index:: zip(), for; tuple unpacking
 
 ``zip(a, b)`` pairs up elements from two sequences.  Unpacking in the
-``for`` heading processes both at once:
+``for`` heading processes both at once.  Try it live and edit the lists:
 
-.. code-block:: python
+.. try_examples::
+   :height: 280px
 
-   names = ["Alice", "Bob", "Carol"]
-   scores = [88, 73, 95]
-
-   for name, score in zip(names, scores):
-       print(f"{name}: {score}")
-
-Output:
-
-.. code-block:: none
-
+   >>> names = ["Alice", "Bob", "Carol"]
+   >>> scores = [88, 73, 95]
+   >>> for name, score in zip(names, scores):
+   ...     print(f"{name}: {score}")
+   ...
    Alice: 88
    Bob: 73
    Carol: 95
@@ -106,14 +93,41 @@ Extended Unpacking
 
 .. index:: tuple unpacking; *rest
 
-A ``*`` prefix captures the "rest" of the sequence into a list:
+A ``*`` prefix captures the "rest" of the sequence into a list.  Try it
+live and move the ``*`` to a different position:
 
-.. code-block:: python
+.. try_examples::
+   :height: 300px
 
-   first, *rest = [1, 2, 3, 4, 5]
-   print(first)   # 1
-   print(rest)    # [2, 3, 4, 5]
+   >>> first, *rest = [1, 2, 3, 4, 5]
+   >>> print(first)   # 1
+   1
+   >>> print(rest)    # [2, 3, 4, 5]
+   [2, 3, 4, 5]
+   >>> *body, last = [1, 2, 3, 4, 5]
+   >>> print(body)    # [1, 2, 3, 4]
+   [1, 2, 3, 4]
+   >>> print(last)    # 5
+   5
 
-   *body, last = [1, 2, 3, 4, 5]
-   print(body)    # [1, 2, 3, 4]
-   print(last)    # 5
+Experiment with unpacking below — try changing the number of variables
+on the left and watch when Python raises a ``ValueError``:
+
+.. try_examples::
+   :height: 300px
+
+   >>> a, b = 10, 20
+   >>> a, b = b, a          # swap, no temporary needed
+   >>> print("swapped:", a, b)
+   swapped: 20 10
+   >>> names = ["Alice", "Bob", "Carol"]
+   >>> scores = [88, 73, 95]
+   >>> for name, score in zip(names, scores):
+   ...     print(f"{name}: {score}")
+   ...
+   Alice: 88
+   Bob: 73
+   Carol: 95
+   >>> first, *rest = [1, 2, 3, 4, 5]
+   >>> print("first:", first, " rest:", rest)
+   first: 1  rest: [2, 3, 4, 5]

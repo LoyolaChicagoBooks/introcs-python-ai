@@ -33,15 +33,16 @@ them:
    * - ``\0``
      - Null character
 
-.. code-block:: none
+Press **Try it live** to run these and watch the escapes take effect:
+
+.. try_examples::
+   :height: 260px
 
    >>> print("Line one\nLine two")
    Line one
    Line two
-
    >>> print("Column 1\tColumn 2")
    Column 1	Column 2
-
    >>> print("She said, \"Hello.\"")
    She said, "Hello."
 
@@ -54,7 +55,10 @@ If you need a string that contains many backslashes — such as a Windows file
 path — a *raw string* treats backslashes as literal characters.  Prefix the
 opening quote with ``r``:
 
-.. code-block:: none
+Try editing the path below and see that the backslashes stay literal:
+
+.. try_examples::
+   :height: 220px
 
    >>> path = r"C:\Users\student\Documents"
    >>> print(path)
@@ -79,7 +83,6 @@ including newlines:
 
    Regards,
    The Department"""
-
    print(message)
 
 Output:
@@ -105,7 +108,10 @@ Testing for Substrings
 
 The ``in`` operator tests whether one string is a substring of another:
 
-.. code-block:: none
+Try changing the words below to test other substrings:
+
+.. try_examples::
+   :height: 240px
 
    >>> "cat" in "concatenate"
    True

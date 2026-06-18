@@ -10,9 +10,10 @@ operations (methods).  You call a method with dot notation:
 ``string_value.method_name(arguments)``.
 
 All string methods return *new* strings.  Strings are **immutable**: calling
-a method never changes the original string.
+a method never changes the original string.  Try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 300px
 
    >>> s = "hello"
    >>> s.upper()
@@ -29,9 +30,10 @@ a method never changes the original string.
 ---------
 
 ``len(s)`` returns the number of characters in ``s``.  It is a built-in
-function, not a method:
+function, not a method.  Try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 220px
 
    >>> len("coding")
    6
@@ -43,9 +45,10 @@ function, not a method:
 Case Conversion
 ---------------
 
-Python provides methods for converting between upper and lower case, capitalising the first word, or title-casing every word:
+Python provides methods for converting between upper and lower case, capitalising the first word, or title-casing every word.  Try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 280px
 
    >>> "Hello World".upper()
    'HELLO WORLD'
@@ -61,9 +64,11 @@ Python provides methods for converting between upper and lower case, capitalisin
 Stripping Whitespace
 --------------------
 
-``strip()`` removes leading and trailing whitespace (spaces, tabs, newlines):
+``strip()`` removes leading and trailing whitespace (spaces, tabs, newlines).
+Try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 240px
 
    >>> "  hello  ".strip()
    'hello'
@@ -80,9 +85,10 @@ Finding Substrings
 ------------------
 
 ``find(sub)`` returns the index of the first occurrence of ``sub``, or
-``-1`` if it is not found:
+``-1`` if it is not found.  Try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 220px
 
    >>> "Bonjour".find("jo")
    3
@@ -97,9 +103,10 @@ returning ``-1`` when not found.
 Testing Start and End
 ---------------------
 
-``startswith()`` and ``endswith()`` return ``True`` or ``False`` and are commonly used in ``if`` statements to filter or classify strings:
+``startswith()`` and ``endswith()`` return ``True`` or ``False`` and are commonly used in ``if`` statements to filter or classify strings.  Try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 240px
 
    >>> "hello.py".endswith(".py")
    True
@@ -116,18 +123,20 @@ Replacing Substrings
 --------------------
 
 ``replace(old, new)`` returns a copy of the string with every occurrence of
-``old`` replaced by ``new``:
+``old`` replaced by ``new``.  Try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 220px
 
    >>> "It was the best of times.".replace("best", "worst")
    'It was the worst of times.'
    >>> "aababc".replace("ab", "X")
    'aXXc'
 
-An optional third argument limits how many replacements to make:
+An optional third argument limits how many replacements to make.  Try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 200px
 
    >>> "aababc".replace("ab", "X", 1)
    'aXabc'
@@ -138,16 +147,18 @@ Splitting and Joining
 ---------------------
 
 ``split()`` breaks a string into a list of words, splitting on whitespace by
-default:
+default.  Try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 200px
 
    >>> "one two three".split()
    ['one', 'two', 'three']
 
-Pass a delimiter to split on something specific:
+Pass a delimiter to split on something specific.  Try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 220px
 
    >>> "a,b,c".split(",")
    ['a', 'b', 'c']
@@ -155,9 +166,10 @@ Pass a delimiter to split on something specific:
    ['2024', '05', '01']
 
 ``join()`` is the inverse: it assembles a list of strings into one string,
-inserting a separator between each pair:
+inserting a separator between each pair.  Try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 220px
 
    >>> ", ".join(["Alice", "Bob", "Carol"])
    'Alice, Bob, Carol'
@@ -203,16 +215,24 @@ Quick Reference
 String Methods Exercise
 -----------------------
 
-Predict the output, then check in the REPL:
+Predict the output, then run the cell to check:
 
-.. code-block:: python
+.. try_examples::
+   :height: 360px
 
-   w = "quickly"
-   print(len(w))
-   print(w[len(w) - 2])
-   print(w[3:5])
-   print(w[2:])
-   print(w.find("ti"))
-   print(w.find("ick"))
-   k = w.find("c")
-   print(k, w[k], w[k - 3], w[k:])
+   >>> w = "quickly"
+   >>> print(len(w))
+   7
+   >>> print(w[len(w) - 2])
+   l
+   >>> print(w[3:5])
+   ck
+   >>> print(w[2:])
+   ickly
+   >>> print(w.find("ti"))
+   -1
+   >>> print(w.find("ick"))
+   2
+   >>> k = w.find("c")
+   >>> print(k, w[k], w[k - 3], w[k:])
+   3 c q ckly

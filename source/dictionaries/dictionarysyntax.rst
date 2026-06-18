@@ -16,56 +16,84 @@ Creating Dictionaries
 
 .. index:: dict; literal, dict; constructor
 
-Use braces with ``key: value`` pairs:
+Use braces with ``key: value`` pairs.  Run this and edit the entries:
 
-.. code-block:: python
+.. try_examples::
+   :height: 260px
 
-   e2sp = {"one": "uno", "two": "dos", "three": "tres"}
-   word_count = {}       # empty dict
-   ages = {"Alice": 30, "Bob": 25}
+   >>> e2sp = {"one": "uno", "two": "dos", "three": "tres"}
+   >>> word_count = {}       # empty dict
+   >>> ages = {"Alice": 30, "Bob": 25}
+   >>> e2sp
+   {'one': 'uno', 'two': 'dos', 'three': 'tres'}
+   >>> word_count
+   {}
+   >>> ages
+   {'Alice': 30, 'Bob': 25}
 
 .. index:: dict(); constructor
 
-You can also use ``dict()`` with keyword arguments:
+You can also use ``dict()`` with keyword arguments.  Try it live:
 
-.. code-block:: python
+.. try_examples::
+   :height: 220px
 
-   e2sp = dict(one="uno", two="dos", three="tres")
+   >>> e2sp = dict(one="uno", two="dos", three="tres")
+   >>> e2sp
+   {'one': 'uno', 'two': 'dos', 'three': 'tres'}
 
 Accessing and Modifying Entries
 ---------------------------------
 
 .. index:: dict; access, dict; update
 
-Use square brackets to get or set a value by key:
+Use square brackets to get or set a value by key.  Run this and edit the
+keys and values:
 
-.. code-block:: python
+.. try_examples::
+   :height: 260px
 
-   print(e2sp["one"])       # "uno"
-   e2sp["four"] = "cuatro"  # add new entry
-   e2sp["two"] = "DOS"      # update existing entry
+   >>> e2sp = {"one": "uno", "two": "dos", "three": "tres"}
+   >>> e2sp["one"]
+   'uno'
+   >>> e2sp["four"] = "cuatro"   # add new entry
+   >>> e2sp["two"] = "DOS"       # update existing entry
+   >>> e2sp
+   {'one': 'uno', 'two': 'DOS', 'three': 'tres', 'four': 'cuatro'}
 
 .. index:: KeyError, dict.get(); default value
 
 Accessing a key that does not exist raises a ``KeyError``.  Use
-``dict.get(key, default)`` to avoid the exception:
+``dict.get(key, default)`` to avoid the exception.  Try both forms live:
 
-.. code-block:: python
+.. try_examples::
+   :height: 260px
 
-   print(e2sp.get("five", "not found"))   # "not found"
-   print(e2sp.get("one", "not found"))    # "uno"
+   >>> e2sp = {"one": "uno", "two": "dos", "three": "tres"}
+   >>> e2sp.get("five", "not found")
+   'not found'
+   >>> e2sp.get("one", "not found")
+   'uno'
+   >>> e2sp["five"]
+   Traceback (most recent call last):
+       ...
+   KeyError: 'five'
 
 Membership Test
 ---------------
 
 .. index:: in; dict key
 
-Use ``in`` to test whether a key is present:
+Use ``in`` to test whether a key is present.  Try it live:
 
-.. code-block:: python
+.. try_examples::
+   :height: 240px
 
-   print("three" in e2sp)    # True
-   print("seven" in e2sp)    # False
+   >>> e2sp = {"one": "uno", "two": "dos", "three": "tres"}
+   >>> "three" in e2sp
+   True
+   >>> "seven" in e2sp
+   False
 
 Removing Entries
 ----------------
@@ -76,40 +104,79 @@ Removing Entries
 - ``d.pop(key)`` removes and returns the value; accepts an optional default.
 - ``d.clear()`` removes all entries.
 
-.. code-block:: python
+Run this and watch the dictionary shrink:
 
-   del e2sp["two"]
-   removed = e2sp.pop("three", None)
-   print(len(e2sp))    # number of remaining entries
+.. try_examples::
+   :height: 260px
+
+   >>> e2sp = {"one": "uno", "two": "dos", "three": "tres"}
+   >>> del e2sp["two"]
+   >>> removed = e2sp.pop("three", None)
+   >>> removed
+   'tres'
+   >>> len(e2sp)         # number of remaining entries
+   1
+   >>> e2sp
+   {'one': 'uno'}
 
 Iterating Over a Dictionary
 -----------------------------
 
 .. index:: dict.keys(), dict.values(), dict.items(), for; dict
 
-.. code-block:: python
+A dictionary can be iterated several ways.  Run this and edit the loops:
 
-   e2sp = {"one": "uno", "two": "dos", "three": "tres"}
+.. try_examples::
+   :height: 360px
 
-   for key in e2sp:             # iterate over keys (insertion order)
-       print(key, "->", e2sp[key])
-
-   for key in e2sp.keys():      # explicit keys view
-       print(key)
-
-   for val in e2sp.values():    # values view
-       print(val)
-
-   for key, val in e2sp.items():  # key-value pairs
-       print(f"{key}: {val}")
-
-Output of the last loop:
-
-.. code-block:: none
-
+   >>> e2sp = {"one": "uno", "two": "dos", "three": "tres"}
+   >>> for key in e2sp:               # iterate over keys (insertion order)
+   ...     print(key, "->", e2sp[key])
+   ...
+   one -> uno
+   two -> dos
+   three -> tres
+   >>> for key in e2sp.keys():        # explicit keys view
+   ...     print(key)
+   ...
+   one
+   two
+   three
+   >>> for val in e2sp.values():      # values view
+   ...     print(val)
+   ...
+   uno
+   dos
+   tres
+   >>> for key, val in e2sp.items():  # key-value pairs
+   ...     print(f"{key}: {val}")
+   ...
    one: uno
    two: dos
    three: tres
+
+Build and modify a dictionary below.  Try adding keys, updating values,
+and calling ``.get()`` with a missing key to see how it differs from
+``[]`` access:
+
+.. try_examples::
+   :height: 320px
+
+   >>> e2sp = {"one": "uno", "two": "dos", "three": "tres"}
+   >>> e2sp["four"] = "cuatro"             # add a new entry
+   >>> e2sp["one"]
+   'uno'
+   >>> e2sp.get("five", "not found")       # safe lookup with default
+   'not found'
+   >>> "three" in e2sp
+   True
+   >>> for key, val in e2sp.items():
+   ...     print(f"{key}: {val}")
+   ...
+   one: uno
+   two: dos
+   three: tres
+   four: cuatro
 
 Key Type Restriction
 --------------------

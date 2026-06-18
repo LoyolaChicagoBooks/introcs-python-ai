@@ -14,6 +14,17 @@ extlinks = {
 
 todo_include_todos = True
 
+# jupyterlite-sphinx "Try Examples": selected doctest snippets get a button that
+# turns the code into a live, editable JupyterLite cell on the website.  We use
+# the directive (`.. try_examples::`) on curated examples rather than enabling it
+# globally.  The rendered code shows in every format; only the button is HTML.
+try_examples_global_button_text = "Try it live ▶"
+try_examples_global_warning_text = (
+    "This example runs in your browser via JupyterLite (Pyodide). "
+    "It may take a few seconds to start the first time, and your edits "
+    "are not saved."
+)
+
 templates_path = ['_templates']
 source_suffix = '.rst'
 master_doc = 'index'
@@ -90,3 +101,29 @@ latex_documents = [
 ]
 
 epub_basename = 'introcs-python'
+
+# Hide the (non-functional) "Try Examples" run button/iframe in the EPUB.  The
+# EPUB builder's format is "html", so the raw-HTML button is not auto-excluded
+# the way it is in the LaTeX/PDF build; this stylesheet hides it for EPUB only.
+epub_css_files = ['epub-overrides.css']
+
+
+def _stringify_node_ids(app, doctree):
+    """Coerce every node id to ``str``.
+
+    jupyterlite-sphinx's ``.. try_examples::`` directive appends a raw
+    ``uuid4()`` *object* (not a string) to a container node's ``ids``.  The HTML
+    writer stringifies it, but the EPUB builder's ``fix_ids`` calls
+    ``fragment.replace(':', '-')`` on each id and crashes with
+    ``'UUID' object has no attribute 'replace'``.  Normalising ids here keeps
+    every builder (HTML/EPUB/LaTeX) safe and is idempotent for real string ids.
+    """
+    from docutils import nodes
+    for node in doctree.findall(nodes.Element):
+        ids = node.get('ids')
+        if ids:
+            node['ids'] = [str(i) for i in ids]
+
+
+def setup(app):
+    app.connect('doctree-read', _stringify_node_ids)

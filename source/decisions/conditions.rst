@@ -13,9 +13,11 @@ something else otherwise.
 
 A *condition* is an expression whose value is either ``True`` or ``False``.
 These are Python's *Boolean* values (named after 19th-century mathematician
-George Boole), and their type is ``bool``.
+George Boole), and their type is ``bool``.  Press **Try it live** to evaluate
+these comparisons and edit the numbers:
 
-.. code-block:: none
+.. try_examples::
+   :height: 280px
 
    >>> 2 < 5
    True
@@ -64,9 +66,10 @@ The ``bool`` Type
 -----------------
 
 ``True`` and ``False`` are built-in constants, not strings.  You can also
-create Boolean values with the ``bool()`` conversion function:
+create Boolean values with the ``bool()`` conversion function.  Try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 280px
 
    >>> bool(0)
    False
@@ -85,9 +88,10 @@ and empty sequences are *falsy*.  This matters in ``if`` statements.
 Chained Comparisons
 -------------------
 
-Python allows comparisons to be *chained*:
+Python allows comparisons to be *chained*.  Try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 220px
 
    >>> x = 5
    >>> 0 < x < 10

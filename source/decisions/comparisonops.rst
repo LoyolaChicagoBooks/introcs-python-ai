@@ -12,9 +12,10 @@ Membership Testing
 ------------------
 
 The ``in`` operator tests whether a value appears in a sequence (string,
-list, tuple, etc.):
+list, tuple, etc.).  Press **Try it live** and change the operands:
 
-.. code-block:: none
+.. try_examples::
+   :height: 240px
 
    >>> "lo" in "hello"
    True
@@ -23,9 +24,10 @@ list, tuple, etc.):
    >>> 3 in [1, 2, 3, 4]
    True
 
-``not in`` is the negation:
+``not in`` is the negation.  Try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 200px
 
    >>> "xyz" not in "hello"
    True
@@ -36,9 +38,10 @@ Identity: ``is`` and ``is not``
 --------------------------------
 
 The ``is`` operator tests whether two names refer to the *same object*, not
-just equal values.  Its most common use is testing for ``None``:
+just equal values.  Its most common use is testing for ``None``.  Try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 240px
 
    >>> x = None
    >>> x is None
@@ -53,9 +56,10 @@ Use ``is None`` rather than ``== None`` — it is more precise and Pythonic.
 Comparison with Strings
 -----------------------
 
-String comparison uses lexicographic (dictionary) order:
+String comparison uses lexicographic (dictionary) order.  Try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 240px
 
    >>> "apple" < "banana"
    True
@@ -69,14 +73,33 @@ String comparison uses lexicographic (dictionary) order:
 Chained Comparisons Revisited
 ------------------------------
 
-Python's chained comparisons work with all comparison operators:
+Python's chained comparisons work with all comparison operators.  Try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 240px
 
    >>> score = 85
    >>> 0 <= score <= 100
    True
    >>> 'a' <= 'c' <= 'z'
+   True
+
+Each expression below evaluates to ``True`` or ``False``.  Press **Try it
+live**, then change the operands and operators to test your understanding:
+
+.. try_examples::
+   :height: 280px
+
+   >>> "lo" in "hello"        # membership
+   True
+   >>> 3 in [1, 2, 3, 4]
+   True
+   >>> "apple" < "banana"     # lexicographic order
+   True
+   >>> "Z" < "a"              # uppercase sorts before lowercase
+   True
+   >>> score = 85
+   >>> 0 <= score <= 100      # chained comparison
    True
 
 Be cautious when mixing ``is`` in a chain — it is unusual and can be

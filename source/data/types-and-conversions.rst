@@ -25,9 +25,10 @@ The four types used most often in early programs are:
 ``bool``
    Boolean truth values: ``True`` or ``False``.
 
-Use ``type()`` to see the type of any value:
+Use ``type()`` to see the type of any value.  Try it in the cell below:
 
-.. code-block:: none
+.. try_examples::
+   :height: 260px
 
    >>> type(42)
    <class 'int'>
@@ -65,29 +66,36 @@ Use the type name as a function to convert between types:
      - Convert to bool
      - ``bool(0)`` → ``False``
 
-.. code-block:: none
+.. try_examples::
+   :height: 300px
 
-   >>> int("42")
+   >>> int("42")        # str -> int
    42
-   >>> float("3.14")
+   >>> float("3.14")    # str -> float
    3.14
-   >>> int(3.99)
+   >>> int(3.99)        # float -> int (truncates toward zero)
    3
-   >>> str(100)
+   >>> str(100)         # int -> str
    '100'
+   >>> round(3.99)      # rounds instead of truncating
+   4
 
 .. index:: int(); truncation, truncation vs rounding
 
-Note that ``int()`` *truncates* floats toward zero — it does not round:
+Note that ``int()`` *truncates* floats toward zero — it does not round.  See
+for yourself:
 
-.. code-block:: none
+.. try_examples::
+   :height: 220px
 
    >>> int(3.9)
    3
    >>> int(-3.9)
    -3
 
-Use ``round()`` if you need rounding.
+Use ``round()`` if you need rounding.  Edit the values in the cell above, and
+try converting a string that is *not* a number (for example ``int("hello")``)
+to see the ``ValueError`` Python raises.
 
 .. index:: bool, truthiness
 
@@ -101,7 +109,10 @@ interpreted as boolean in a condition:
   ``{}`` (empty dict), ``None``
 - **Truthy values:** everything else
 
-.. code-block:: none
+Run these conversions to see truthiness in action:
+
+.. try_examples::
+   :height: 260px
 
    >>> bool(0)
    False
@@ -118,9 +129,10 @@ None
 ----
 
 ``None`` is a special value that represents the *absence* of a value.  It is
-Python's equivalent of null.
+Python's equivalent of null.  Try assigning and testing it:
 
-.. code-block:: none
+.. try_examples::
+   :height: 240px
 
    >>> x = None
    >>> x is None

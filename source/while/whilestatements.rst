@@ -30,23 +30,21 @@ The Cooling Tea Example
 -----------------------
 
 Suppose tea starts at 115 °F and we want it at 112 °F; each chip of ice
-lowers the temperature by one degree:
+lowers the temperature by one degree.  Run it, then try changing the
+starting temperature or the target:
 
-.. code-block:: python
+.. try_examples::
+   :height: 280
 
-   temperature = 115
-   while temperature > 112:
-       print(f"Temperature: {temperature}°F — adding ice.")
-       temperature -= 1
-   print(f"Tea is ready at {temperature}°F.")
-
-Output:
-
-.. code-block:: none
-
+   >>> temperature = 115
+   >>> while temperature > 112:
+   ...     print(f"Temperature: {temperature}°F — adding ice.")
+   ...     temperature -= 1
+   ...
    Temperature: 115°F — adding ice.
    Temperature: 114°F — adding ice.
    Temperature: 113°F — adding ice.
+   >>> print(f"Tea is ready at {temperature}°F.")
    Tea is ready at 112°F.
 
 .. index:: loop tracing, loop; trace table
@@ -80,25 +78,24 @@ each test:
 Countdown Example
 -----------------
 
-This loop counts down from 5, printing each value, then prints a final message once the condition becomes false:
+This loop counts down from 5, printing each value, then prints a final
+message once the condition becomes false.  Run it, then change the starting
+``count`` or the continuation condition and predict how many lines it prints:
 
-.. code-block:: python
+.. try_examples::
+   :height: 280
 
-   count = 5
-   while count > 0:
-       print(count)
-       count -= 1
-   print("Blastoff!")
-
-Output:
-
-.. code-block:: none
-
+   >>> count = 5
+   >>> while count > 0:
+   ...     print(count)
+   ...     count -= 1
+   ...
    5
    4
    3
    2
    1
+   >>> print("Blastoff!")
    Blastoff!
 
 .. index:: infinite loop
@@ -143,16 +140,23 @@ Python has no ``do``-``while`` statement.  The idiomatic replacement is
 ------------
 
 ``continue`` skips the rest of the current iteration and jumps back to
-test the condition:
+test the condition.  Run it to see only the odd numbers printed:
 
-.. code-block:: python
+.. try_examples::
+   :height: 260
 
-   i = 0
-   while i < 10:
-       i += 1
-       if i % 2 == 0:
-           continue      # skip even numbers
-       print(i)          # prints 1 3 5 7 9
+   >>> i = 0
+   >>> while i < 10:
+   ...     i += 1
+   ...     if i % 2 == 0:
+   ...         continue      # skip even numbers
+   ...     print(i)          # prints 1 3 5 7 9
+   ...
+   1
+   3
+   5
+   7
+   9
 
 .. index:: loop planning rubric, loop design
 

@@ -1,33 +1,45 @@
 Chapter Review Questions
 ========================
 
-1. What is printed by this fragment?
+1. What is printed by this fragment?  Predict first, then run the cell to check:
 
-   .. code-block:: python
+   .. try_examples::
+      :height: 300px
 
-      s = "question"
-      print(len(s))
-      print(s[2])
-      print(s[2:5])
-      print(s[3:])
-      print(s.find("ti"))
-      print(s.find("to"))
+      >>> s = "question"
+      >>> print(len(s))
+      8
+      >>> print(s[2])
+      e
+      >>> print(s[2:5])
+      est
+      >>> print(s[3:])
+      stion
+      >>> print(s.find("ti"))
+      4
+      >>> print(s.find("to"))
+      -1
 
-2. What is printed by this fragment?
+2. What is printed by this fragment?  Predict first, then run the cell to check:
 
-   .. code-block:: python
+   .. try_examples::
+      :height: 200px
 
-      s = "Word"
-      s.upper()
-      print(s)
+      >>> s = "Word"
+      >>> s.upper()
+      'WORD'
+      >>> print(s)
+      Word
 
-3. What is printed by this fragment?
+3. What is printed by this fragment?  Predict first, then run the cell to check:
 
-   .. code-block:: python
+   .. try_examples::
+      :height: 200px
 
-      a = "hi"
-      b = a.upper()
-      print(a + b)
+      >>> a = "hi"
+      >>> b = a.upper()
+      >>> print(a + b)
+      hiHI
 
 4. Strings and mutability.
 
@@ -48,13 +60,16 @@ Chapter Review Questions
    characters (``a``, ``e``, ``i``, ``o``, ``u``, case-insensitive) in
    string ``s``.
 
-9. What is printed by this fragment?
+9. What is printed by this fragment?  Predict first, then run the cell to check:
 
-   .. code-block:: python
+   .. try_examples::
+      :height: 220px
 
-      parts = "2024-05-01".split("-")
-      print(parts)
-      print("-".join(parts))
+      >>> parts = "2024-05-01".split("-")
+      >>> print(parts)
+      ['2024', '05', '01']
+      >>> print("-".join(parts))
+      2024-05-01
 
 10. Write a function ``title_case(s)`` that returns ``s`` converted to title
     case (first letter of each word capitalized) without using the built-in

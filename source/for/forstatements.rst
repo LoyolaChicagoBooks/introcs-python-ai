@@ -28,22 +28,16 @@ Iterating Over a String
 -----------------------
 
 A string is a sequence of characters, so we can loop over it one character
-at a time:
+at a time.  Run it and try a different string:
 
-.. code-block:: python
+.. try_examples::
+   :height: 240px
 
-   def one_char_per_line(s: str) -> None:
-       for ch in s:
-           print(ch)
-
-.. code-block:: python
-
-   one_char_per_line("hi!")
-
-Output:
-
-.. code-block:: none
-
+   >>> def one_char_per_line(s: str) -> None:
+   ...     for ch in s:
+   ...         print(ch)
+   ...
+   >>> one_char_per_line("hi!")
    h
    i
    !
@@ -51,12 +45,18 @@ Output:
 Compare this with the equivalent ``while`` loop that requires an explicit
 index:
 
-.. code-block:: python
+.. try_examples::
+   :height: 240px
 
-   i = 0
-   while i < len(s):
-       print(s[i])
-       i += 1
+   >>> s = "hi!"
+   >>> i = 0
+   >>> while i < len(s):
+   ...     print(s[i])
+   ...     i += 1
+   ...
+   h
+   i
+   !
 
 The ``for`` version keeps the emphasis on the *characters*, not the secondary
 bookkeeping.  There is no index to initialise, no ``i += 1`` to remember, and
@@ -67,20 +67,18 @@ no risk of an infinite loop.
 Iterating Over a List
 ---------------------
 
-The same syntax works for any sequence, including lists:
+The same syntax works for any sequence, including lists.  Run it and change
+the scores:
 
-.. code-block:: python
+.. try_examples::
+   :height: 240px
 
-   scores = [88, 73, 95, 61]
-   total = 0
-   for score in scores:
-       total += score
-   print("Total:", total)
-
-Output:
-
-.. code-block:: none
-
+   >>> scores = [88, 73, 95, 61]
+   >>> total = 0
+   >>> for score in scores:
+   ...     total += score
+   ...
+   >>> print("Total:", total)
    Total: 317
 
 Iterating Over a Range
@@ -89,17 +87,14 @@ Iterating Over a Range
 .. index:: range; with for loop
 
 To repeat something a fixed number of times, or to produce a sequence of
-integers, combine ``for`` with ``range()``:
+integers, combine ``for`` with ``range()``.  Run it live:
 
-.. code-block:: python
+.. try_examples::
+   :height: 240px
 
-   for i in range(5):
-       print(i)
-
-Output:
-
-.. code-block:: none
-
+   >>> for i in range(5):
+   ...     print(i)
+   ...
    0
    1
    2
@@ -132,24 +127,18 @@ Break and Continue
 
 ``break`` exits the innermost loop immediately; ``continue`` skips the rest
 of the current iteration and moves to the next.  Both work inside ``for``
-loops just as they do inside ``while`` loops.
+loops just as they do inside ``while`` loops.  Run it and try other words:
 
-.. code-block:: python
+.. try_examples::
+   :height: 260px
 
-   def find_first_vowel(s: str) -> str | None:
-       for ch in s.lower():
-           if ch in "aeiou":
-               return ch
-       return None
-
-.. code-block:: python
-
-   print(find_first_vowel("Python"))
-
-Output:
-
-.. code-block:: none
-
+   >>> def find_first_vowel(s: str) -> str | None:
+   ...     for ch in s.lower():
+   ...         if ch in "aeiou":
+   ...             return ch
+   ...     return None
+   ...
+   >>> print(find_first_vowel("Python"))
    o
 
 Here ``return`` exits the function as soon as the first vowel is found;

@@ -19,18 +19,18 @@ No Declarations Needed
 ----------------------
 
 In Python, you simply assign a value.  The variable is created automatically
-and takes the type of whatever you assign to it:
+and takes the type of whatever you assign to it.  Press **Try it live** to run
+these statements yourself:
 
-.. code-block:: none
+.. try_examples::
+   :height: 300px
 
    >>> width = 5.0
    >>> width
    5.0
 
-The *value* has a type; the *variable* does not.  You can assign a different
-type to the same variable name later (though this is rarely a good idea):
-
-.. code-block:: none
+   The *value* has a type; the *variable* does not.  You can assign a different
+   type to the same variable name later (though this is rarely a good idea):
 
    >>> x = 10
    >>> type(x)
@@ -45,18 +45,17 @@ Assignment is Right-to-Left
 -----------------------------
 
 An assignment statement evaluates the expression on the *right* side first,
-then stores the result in the variable on the *left*:
+then stores the result in the variable on the *left*.  Try it yourself:
 
-.. code-block:: none
+.. try_examples::
+   :height: 280px
 
    >>> area = 5 * 7
    >>> area
    35
 
-The variable on the left receives the result.  This works even when the same
-variable appears on both sides:
-
-.. code-block:: none
+   The variable on the left receives the result.  This works even when the same
+   variable appears on both sides:
 
    >>> n = 3
    >>> n = n + 1
@@ -106,9 +105,11 @@ readers understand your program.
 Multiple and Augmented Assignment
 -----------------------------------
 
-You can assign the same value to several variables at once:
+You can assign the same value to several variables at once, and you can also
+assign to multiple variables from multiple values in one line.  Try it:
 
-.. code-block:: none
+.. try_examples::
+   :height: 320px
 
    >>> i = j = 0
    >>> i
@@ -116,9 +117,7 @@ You can assign the same value to several variables at once:
    >>> j
    0
 
-You can also assign to multiple variables from multiple values in one line:
-
-.. code-block:: none
+   You can also assign to multiple variables from multiple values in one line:
 
    >>> x, y = 3, 4
    >>> x
@@ -129,9 +128,11 @@ You can also assign to multiple variables from multiple values in one line:
 .. index:: tuple unpacking; preview, multiple assignment; simultaneous
 
 This is called *tuple unpacking* (discussed further in the Tuples chapter).
-A particularly elegant use is swapping two values without a temporary variable:
+A particularly elegant use is swapping two values without a temporary variable.
+Run it to see the values exchange:
 
-.. code-block:: none
+.. try_examples::
+   :height: 260px
 
    >>> a, b = 10, 20
    >>> a, b = b, a
@@ -142,9 +143,11 @@ A particularly elegant use is swapping two values without a temporary variable:
 
 .. index:: augmented assignment; operators list, +=, -=, *=, /=, //=, %=, **=
 
-*Augmented assignment* operators combine an operation with assignment:
+*Augmented assignment* operators combine an operation with assignment.  Try
+stepping through these updates:
 
-.. code-block:: none
+.. try_examples::
+   :height: 260px
 
    >>> n = 5
    >>> n += 3     # same as n = n + 3
@@ -160,22 +163,28 @@ all work the same way.
 Exercises
 ---------
 
-*Think* what the printed result would be, then check in the shell:
+*Think* what the printed result would be, then press **Try it live** to check.
+Try rewriting the reassignments using augmented operators such as ``+=`` and
+``*=``:
 
-.. code-block:: python
+.. try_examples::
+   :height: 280px
 
-   x = 1
-   x = x + 1
-   x = x * 3
-   x = x * 5
-   print(x)
+   >>> x = 1
+   >>> x = x + 1
+   >>> x = x * 3
+   >>> x = x * 5
+   >>> print(x)
+   30
 
 Another to try:
 
-.. code-block:: python
+.. try_examples::
+   :height: 280px
 
-   a = 5
-   a = a // 2
-   a = a + 1
-   a = a * 2
-   print(a)
+   >>> a = 5
+   >>> a = a // 2
+   >>> a = a + 1
+   >>> a = a * 2
+   >>> print(a)
+   6

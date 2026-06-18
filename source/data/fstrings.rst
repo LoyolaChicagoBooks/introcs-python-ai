@@ -19,23 +19,19 @@ Basic F-Strings
 
 An f-string is a string literal prefixed with ``f`` (or ``F``).  Inside the
 string, any expression enclosed in curly braces ``{}`` is evaluated and its
-value is inserted:
+value is inserted.  Any Python expression can go inside ``{}``.  Press
+**Try it live** and edit the names, ages, and expressions:
 
-.. code-block:: none
+.. try_examples::
+   :height: 300px
 
    >>> name = "Alice"
    >>> age = 20
    >>> print(f"My name is {name} and I am {age} years old.")
    My name is Alice and I am 20 years old.
-
-Any Python expression can go inside ``{}``:
-
-.. code-block:: none
-
    >>> x = 5
    >>> print(f"The square of {x} is {x ** 2}.")
    The square of 5 is 25.
-
    >>> a, b = 3, 4
    >>> print(f"The hypotenuse is {(a**2 + b**2) ** 0.5:.2f}.")
    The hypotenuse is 5.00.
@@ -48,23 +44,25 @@ Format Specifiers
 After the expression you can add a *format specifier* separated by a colon to
 control how the value is displayed.
 
-**Floating-point precision:**
+**Floating-point precision:** press **Try it live** and change the precision:
 
-.. code-block:: none
+.. try_examples::
+   :height: 240px
 
    >>> pi = 3.141592653589793
    >>> print(f"pi ≈ {pi:.4f}")
    pi ≈ 3.1416
-
    >>> price = 9.5
    >>> print(f"Price: ${price:.2f}")
    Price: $9.50
 
 .. index:: f-string; field width, f-string; alignment
 
-**Field width and alignment:**
+**Field width and alignment:** press **Try it live** and try the alignment
+specifiers in the comments below:
 
-.. code-block:: none
+.. try_examples::
+   :height: 240px
 
    >>> for i in range(1, 4):
    ...     print(f"{i:3}  {i**2:5}")
@@ -73,23 +71,30 @@ control how the value is displayed.
      2      4
      3      9
 
-   - ``:3`` means: right-align in a field of width 3.
-   - ``:<10`` means: left-align in a field of width 10.
-   - ``:^10`` means: center in a field of width 10.
+- ``:3`` means: right-align in a field of width 3.
+- ``:<10`` means: left-align in a field of width 10.
+- ``:^10`` means: center in a field of width 10.
 
 .. index:: f-string; integer format, f-string; binary, f-string; hexadecimal
 
-**Integer formatting:**
+**Integer formatting:** format specifiers are easiest to learn by experiment.
+Press **Try it live** and change the values and the specifiers:
 
-.. code-block:: none
+.. try_examples::
+   :height: 300px
 
    >>> n = 255
-   >>> print(f"{n:d}")     # decimal
+   >>> print(f"{n:d}")       # decimal
    255
-   >>> print(f"{n:08b}")   # binary, zero-padded to 8 digits
+   >>> print(f"{n:08b}")     # binary, zero-padded to 8 digits
    11111111
-   >>> print(f"{n:x}")     # hexadecimal
+   >>> print(f"{n:x}")       # hexadecimal
    ff
+   >>> print(f"{n:#x}")      # hexadecimal with 0x prefix
+   0xff
+   >>> pi = 3.141592653589793
+   >>> print(f"pi to 4 places: {pi:.4f}")
+   pi to 4 places: 3.1416
 
 .. index:: str.format()
 
@@ -105,11 +110,13 @@ You may encounter two older formatting styles in existing code.
    print("The wall area is {} square feet.".format(wall_area))
    print("Name: {0}, Age: {1}".format(name, age))
 
-*Percent-style formatting:*
+*Percent-style formatting* is the oldest style; press **Try it live** to run it:
 
-.. code-block:: python
+.. try_examples::
+   :height: 220px
 
-   print("pi = %.4f" % 3.14159)
+   >>> print("pi = %.4f" % 3.14159)
+   pi = 3.1416
 
 F-strings are preferred in new code because they are more readable and
 slightly faster.

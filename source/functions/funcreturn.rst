@@ -14,26 +14,25 @@ The ``return`` Statement
 
 Use ``return`` to send a value back to the caller:
 
-.. code-block:: python
+.. try_examples::
+   :height: 200px
 
-   def add(a, b):
-       return a + b
-
-   result = add(3, 4)
-   print(result)
-
-Output:
-
-.. code-block:: none
-
+   >>> def add(a, b):
+   ...     return a + b
+   ...
+   >>> add(3, 4)
    7
 
 .. index:: return value; in expression
 
 The returned value can be used in any expression:
 
-.. code-block:: none
+.. try_examples::
+   :height: 240px
 
+   >>> def add(a, b):
+   ...     return a + b
+   ...
    >>> add(3, 4) * 2
    14
    >>> print(f"Sum: {add(10, 5)}")
@@ -79,7 +78,8 @@ Functions Without ``return``
 A function that does not have a ``return`` statement (or that reaches the end
 without hitting one) automatically returns ``None``:
 
-.. code-block:: none
+.. try_examples::
+   :height: 240px
 
    >>> def say_hi():
    ...     print("Hi!")
@@ -100,11 +100,17 @@ Early Return
 A function can have more than one ``return`` statement.  Python exits the
 function and returns as soon as it hits any ``return``:
 
-.. code-block:: python
+.. try_examples::
+   :height: 240px
 
-   def absolute_value(x):
-       if x >= 0:
-           return x
-       return -x
+   >>> def absolute_value(x):
+   ...     if x >= 0:
+   ...         return x
+   ...     return -x
+   ...
+   >>> absolute_value(-5)
+   5
+   >>> absolute_value(5)
+   5
 
 The second ``return`` is only reached if ``x < 0``.

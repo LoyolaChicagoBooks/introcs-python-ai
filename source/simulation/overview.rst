@@ -92,6 +92,35 @@ Output:
 
    π ≈ 3.141440  (true: 3.141593)
 
+Here is a complete, self-contained version you can run right now.  We seed
+the generator with ``random.seed(0)`` so the output is reproducible; remove
+that line and run it several times to watch the estimate change.  Increase
+``n`` and watch the estimate settle closer to π:
+
+.. try_examples::
+   :height: 340
+
+   >>> import math
+   >>> import random
+   >>> random.seed(0)
+   >>> def estimate_pi(n):
+   ...     inside = 0
+   ...     for _ in range(n):
+   ...         x = random.uniform(-1, 1)
+   ...         y = random.uniform(-1, 1)
+   ...         if x * x + y * y <= 1:
+   ...             inside += 1
+   ...     return 4 * inside / n
+   ...
+   >>> for n in [100, 1_000, 10_000, 100_000]:
+   ...     est = estimate_pi(n)
+   ...     print(f"n={n:>7}: pi ~= {est:.5f}  error={abs(est - math.pi):.5f}")
+   ...
+   n=    100: pi ~= 3.28000  error=0.13841
+   n=   1000: pi ~= 3.02000  error=0.12159
+   n=  10000: pi ~= 3.14480  error=0.00321
+   n= 100000: pi ~= 3.13056  error=0.01103
+
 Saving Darts to CSV
 ^^^^^^^^^^^^^^^^^^^^
 

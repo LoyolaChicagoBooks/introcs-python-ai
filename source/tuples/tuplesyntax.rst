@@ -25,32 +25,25 @@ Write a tuple with parentheses and commas:
    empty = ()
 
 Parentheses are optional in most contexts — the comma is what makes a
-tuple:
+tuple.  Try it live and confirm that the comma alone creates a tuple:
 
-.. code-block:: python
+.. try_examples::
+   :height: 220px
 
-   point = 3, 7        # also a tuple
-   print(type(point))
-
-Output:
-
-.. code-block:: none
-
+   >>> point = 3, 7        # also a tuple
+   >>> print(type(point))
    <class 'tuple'>
 
 A single-element tuple requires a trailing comma; without it, Python
-treats the parentheses as grouping:
+treats the parentheses as grouping.  Run this and edit the values to see
+how the trailing comma changes the type:
 
-.. code-block:: python
+.. try_examples::
+   :height: 240px
 
-   one = (42,)         # tuple with one element
-   not_one = (42)      # just the integer 42
-   print(type(one), type(not_one))
-
-Output:
-
-.. code-block:: none
-
+   >>> one = (42,)         # tuple with one element
+   >>> not_one = (42)      # just the integer 42
+   >>> print(type(one), type(not_one))
    <class 'tuple'> <class 'int'>
 
 Indexing and Length
@@ -58,14 +51,19 @@ Indexing and Length
 
 .. index:: tuple; index, tuple; len()
 
-Tuples support indexing, slicing, and ``len()`` exactly like lists:
+Tuples support indexing, slicing, and ``len()`` exactly like lists.  Try
+it live and edit the indices:
 
-.. code-block:: python
+.. try_examples::
+   :height: 240px
 
-   rgb = (255, 128, 0)
-   print(rgb[0])        # 255
-   print(rgb[-1])       # 0
-   print(len(rgb))      # 3
+   >>> rgb = (255, 128, 0)
+   >>> print(rgb[0])        # 255
+   255
+   >>> print(rgb[-1])       # 0
+   0
+   >>> print(len(rgb))      # 3
+   3
 
 Immutability
 ------------
@@ -109,16 +107,14 @@ Converting Between Tuples and Lists
 
 .. index:: tuple(); list()
 
-.. code-block:: python
+Try it live and watch the list grow before it is converted back:
 
-   t = (1, 2, 3)
-   lst = list(t)       # convert tuple → list
-   lst.append(4)
-   t2 = tuple(lst)     # convert list → tuple
-   print(t2)
+.. try_examples::
+   :height: 240px
 
-Output:
-
-.. code-block:: none
-
+   >>> t = (1, 2, 3)
+   >>> lst = list(t)       # convert tuple -> list
+   >>> lst.append(4)
+   >>> t2 = tuple(lst)     # convert list -> tuple
+   >>> print(t2)
    (1, 2, 3, 4)

@@ -69,27 +69,51 @@ Conversion Methods
 Putting It Together
 --------------------
 
-Here we create two ``Rational`` values and exercise the arithmetic and display methods:
+Here we create two ``Rational`` values and exercise the arithmetic and
+display methods.  This cell folds in the full class so you can run it and
+edit the numbers:
 
-.. code-block:: python
+.. try_examples::
+   :height: 360px
 
-   f = Rational(6, -10)
-   h = Rational(1, 2)
-
-   print(f)              # -3/5  (normalised automatically)
-   print(f + h)          # -1/10
-   print(f * h)          # -3/10
-   print(h > f)          # True
-   print(float(f))       # -0.6
-
-Output:
-
-.. code-block:: none
-
+   >>> import math
+   >>> class Rational:
+   ...     def __init__(self, numerator: int, denominator: int = 1):
+   ...         if denominator == 0:
+   ...             raise ValueError("Denominator cannot be zero")
+   ...         g = math.gcd(abs(numerator), abs(denominator))
+   ...         sign = -1 if denominator < 0 else 1
+   ...         self._num = sign * numerator // g
+   ...         self._denom = sign * denominator // g
+   ...     def __str__(self) -> str:
+   ...         if self._denom == 1:
+   ...             return str(self._num)
+   ...         return f"{self._num}/{self._denom}"
+   ...     def __add__(self, other):
+   ...         return Rational(self._num * other._denom + other._num * self._denom,
+   ...                         self._denom * other._denom)
+   ...     def __mul__(self, other):
+   ...         return Rational(self._num * other._num, self._denom * other._denom)
+   ...     def __eq__(self, other):
+   ...         if not isinstance(other, Rational):
+   ...             return NotImplemented
+   ...         return self._num == other._num and self._denom == other._denom
+   ...     def __lt__(self, other):
+   ...         return self._num * other._denom < other._num * self._denom
+   ...     def __float__(self) -> float:
+   ...         return self._num / self._denom
+   ...
+   >>> f = Rational(6, -10)
+   >>> h = Rational(1, 2)
+   >>> print(f)              # -3/5  (normalised automatically)
    -3/5
+   >>> print(f + h)          # -1/10
    -1/10
+   >>> print(f * h)          # -3/10
    -3/10
+   >>> print(h > f)          # True
    True
+   >>> print(float(f))       # -0.6
    -0.6
 
 Python dispatches ``f + h`` to ``f.__add__(h)`` and ``h > f`` to

@@ -15,9 +15,11 @@ Testing Expressions in the Shell
 ---------------------------------
 
 Python's interactive shell is perfect for trying out arithmetic.  Start it
-with ``python3`` and type expressions at the ``>>>`` prompt:
+with ``python3`` and type expressions at the ``>>>`` prompt.  Press **Try it
+live** to evaluate these expressions and edit the numbers:
 
-.. code-block:: none
+.. try_examples::
+   :height: 220px
 
    >>> 2 + 3
    5
@@ -47,7 +49,11 @@ Python has two main numeric types for beginners:
    Approximate real numbers, written with a decimal point or an exponent:
    ``.2``, ``2.0``, ``20.``, ``2000e-1``, ``2E3``.
 
-.. code-block:: none
+The built-in ``type`` function reports the type of any value.  Try it live and
+check the type of a few values of your own:
+
+.. try_examples::
+   :height: 220px
 
    >>> type(42)
    <class 'int'>
@@ -96,23 +102,24 @@ The arithmetic operators in Python are:
 .. index:: operator; /; true division, operator; //; floor division, operator; %; modulus, operator; **; exponentiation
 
 A key difference from many other languages: ``/`` *always* produces a
-``float``, even if both operands are integers:
+``float``, even if both operands are integers.  Use ``//`` when you want a
+whole-number result.  Press **Try it live** to run these and edit the numbers:
 
-.. code-block:: none
+.. try_examples::
+   :height: 280px
 
-   >>> 7 / 2
+   >>> 7 / 2      # true division -> always a float
    3.5
    >>> 6 / 2
    3.0
-
-Use ``//`` when you want a whole-number result:
-
-.. code-block:: none
-
-   >>> 7 // 2
+   >>> 7 // 2     # floor division -> int
    3
    >>> -7 // 2
    -4
+   >>> 7 % 2      # remainder (modulus)
+   1
+   >>> 2 ** 10    # exponentiation
+   1024
 
 .. index:: operator precedence
 
@@ -127,9 +134,11 @@ to lowest precedence:
 3. ``*``, ``/``, ``//``, ``%`` (multiplication and division)
 4. ``+``, ``-`` (addition and subtraction)
 
-Use parentheses to override the default order:
+Use parentheses to override the default order.  Try it live and see how the
+parentheses change the result:
 
-.. code-block:: none
+.. try_examples::
+   :height: 220px
 
    >>> 2 + 3 * 4
    14
@@ -144,9 +153,11 @@ Mixed Arithmetic
 ----------------
 
 When you mix ``int`` and ``float`` in an expression, Python converts the
-``int`` to ``float`` automatically:
+``int`` to ``float`` automatically.  Try it live and watch how the result type
+changes:
 
-.. code-block:: none
+.. try_examples::
+   :height: 240px
 
    >>> 1 + 2.0
    3.0
@@ -188,7 +199,10 @@ needed:
    * - ``min(a, b, ...)``
      - Smallest value
 
-.. code-block:: none
+Try these built-in functions live and edit the arguments:
+
+.. try_examples::
+   :height: 240px
 
    >>> abs(-7)
    7
@@ -199,9 +213,10 @@ needed:
 
 .. index:: math module, math.sqrt(), math.floor(), math.ceil(), math.pi
 
-The ``math`` module provides more functions.  Import it first:
+The ``math`` module provides more functions.  Import it first, then try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 280px
 
    >>> import math
    >>> math.sqrt(2)

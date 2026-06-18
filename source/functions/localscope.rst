@@ -11,24 +11,22 @@ only while the function is running and are invisible outside it.
 Local Variables
 ---------------
 
-Consider this function:
+Consider this function.  Press **Try it live** to run the definition and the
+call:
 
-.. code-block:: python
+.. try_examples::
+   :height: 240px
 
-   def compute_area(length: float, width: float) -> float:
-       area = length * width    # 'area' is a local variable
-       return area
-
-The variables ``length``, ``width``, and ``area`` are all local.  After the
-function returns, they are gone.  Trying to access them from outside causes an
-error:
-
-.. code-block:: none
-
+   >>> def compute_area(length: float, width: float) -> float:
+   ...     area = length * width    # 'area' is a local variable
+   ...     return area
+   ...
    >>> compute_area(5, 3)
    15
-   >>> area
-   NameError: name 'area' is not defined
+
+The variables ``length``, ``width``, and ``area`` are all local.  After the
+function returns, they are gone.  Trying to access ``area`` from outside the
+function raises ``NameError: name 'area' is not defined``.
 
 .. index:: scope; why local scope matters
 
@@ -41,15 +39,19 @@ Local scope is a feature, not a limitation.  It means:
   variables in other parts of the program.
 - You can use the same name in different functions without conflict.
 
-.. code-block:: python
+.. try_examples::
+   :height: 280px
 
-   def add(a: int, b: int) -> int:
-       result = a + b    # this 'result' is local to add()
-       return result
-
-   def multiply(a: int, b: int) -> int:
-       result = a * b    # this 'result' is local to multiply()
-       return result
+   >>> def add(a: int, b: int) -> int:
+   ...     result = a + b    # this 'result' is local to add()
+   ...     return result
+   ...
+   >>> def multiply(a: int, b: int) -> int:
+   ...     result = a * b    # this 'result' is local to multiply()
+   ...     return result
+   ...
+   >>> add(3, 4)
+   7
 
 Both functions have a variable named ``result``, but they are completely
 independent.

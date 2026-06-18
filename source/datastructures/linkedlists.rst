@@ -46,14 +46,25 @@ Walk the list by following ``next`` until ``None``:
    :start-after: # start: print_list
    :end-before: # end: print_list
 
-.. code-block:: python
+Run the whole thing — node class, traversal, and a hand-built list together:
 
-   print_list(head)
+.. try_examples::
+   :height: 340px
 
-Output:
-
-.. code-block:: none
-
+   >>> class Node:
+   ...     def __init__(self, data, next_node: "Node | None" = None):
+   ...         self.data = data
+   ...         self.next = next_node
+   ...
+   >>> def print_list(head: "Node | None") -> None:
+   ...     current = head
+   ...     while current is not None:
+   ...         print(current.data, end=" -> ")
+   ...         current = current.next
+   ...     print("None")
+   ...
+   >>> head = Node(1, Node(2, Node(3)))
+   >>> print_list(head)
    1 -> 2 -> 3 -> None
 
 The SinglyLinkedList Class

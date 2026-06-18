@@ -16,12 +16,17 @@ The Birthday Problem
 
 Suppose you want to print a birthday song for a friend named Emily:
 
-.. code-block:: python
+.. try_examples::
+   :height: 240px
 
-   print("Happy Birthday to you!")
-   print("Happy Birthday to you!")
-   print("Happy Birthday, dear Emily.")
-   print("Happy Birthday to you!")
+   >>> print("Happy Birthday to you!")
+   Happy Birthday to you!
+   >>> print("Happy Birthday to you!")
+   Happy Birthday to you!
+   >>> print("Happy Birthday, dear Emily.")
+   Happy Birthday, dear Emily.
+   >>> print("Happy Birthday to you!")
+   Happy Birthday to you!
 
 Now suppose you also want to print the song for a friend named Andre.  You
 could copy the four lines and change the name — but what if you also decide to
@@ -55,22 +60,19 @@ Calling a Function
 ------------------
 
 To run the code in a function, you *call* it by writing its name followed by
-parentheses:
+parentheses.  Press **Try it live** to run the definition, then edit the name
+in the song or call ``happy_birthday()`` more than once:
 
-.. code-block:: python
+.. try_examples::
+   :height: 320px
 
-   def happy_birthday():
-       print("Happy Birthday to you!")
-       print("Happy Birthday to you!")
-       print("Happy Birthday, dear Emily.")
-       print("Happy Birthday to you!")
-
-   happy_birthday()
-
-Output:
-
-.. code-block:: none
-
+   >>> def happy_birthday():
+   ...     print("Happy Birthday to you!")
+   ...     print("Happy Birthday to you!")
+   ...     print("Happy Birthday, dear Emily.")
+   ...     print("Happy Birthday to you!")
+   ...
+   >>> happy_birthday()
    Happy Birthday to you!
    Happy Birthday to you!
    Happy Birthday, dear Emily.

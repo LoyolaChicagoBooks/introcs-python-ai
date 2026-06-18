@@ -26,9 +26,11 @@ There are 6 characters and the last index is 5 — one less than the length.
 Subscript Notation
 ------------------
 
-Use square brackets to access a single character:
+Use square brackets to access a single character.  Press **Try it live** to
+run these and change the index:
 
-.. code-block:: none
+.. try_examples::
+   :height: 280px
 
    >>> s = "coding"
    >>> s[0]
@@ -40,10 +42,12 @@ Use square brackets to access a single character:
 
 The result is always a one-character string.
 
-The subscript can be any expression that evaluates to an integer:
+The subscript can be any expression that evaluates to an integer.  Try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 220px
 
+   >>> s = "coding"
    >>> n = 3
    >>> s[n - 1]
    'd'
@@ -53,9 +57,10 @@ The subscript can be any expression that evaluates to an integer:
 Negative Indices
 ----------------
 
-Python allows *negative* indices that count from the right end:
+Python allows *negative* indices that count from the right end.  Try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 260px
 
    >>> s = "coding"
    >>> s[-1]     # last character
@@ -74,9 +79,10 @@ Slicing
 
 A *slice* extracts a substring using the notation ``s[start:stop]``.
 The result includes characters from index ``start`` up to, **but not
-including**, index ``stop``:
+including**, index ``stop``.  Try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 220px
 
    >>> s = "coding"
    >>> s[1:4]
@@ -84,10 +90,12 @@ including**, index ``stop``:
    >>> s[0:3]
    'cod'
 
-Omitting either end uses the beginning or end of the string:
+Omitting either end uses the beginning or end of the string.  Try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 260px
 
+   >>> s = "coding"
    >>> s[:3]     # from the start
    'cod'
    >>> s[3:]     # to the end
@@ -95,10 +103,12 @@ Omitting either end uses the beginning or end of the string:
    >>> s[:]      # whole string (copy)
    'coding'
 
-Slices work with negative indices too:
+Slices work with negative indices too.  Try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 240px
 
+   >>> s = "coding"
    >>> s[-3:]    # last three characters
    'ing'
    >>> s[:-2]    # everything except the last two
@@ -109,9 +119,10 @@ Slices work with negative indices too:
 Step in Slices
 --------------
 
-An optional third number specifies a *step*:
+An optional third number specifies a *step*.  Try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 240px
 
    >>> s = "abcdefgh"
    >>> s[::2]       # every other character
@@ -124,15 +135,24 @@ Reversing with ``[::-1]`` is an idiomatic Python trick worth remembering.
 Indexing Exercise
 -----------------
 
-Predict what each line prints, then verify in the REPL:
+Predict what each line prints, then run the cell to check your predictions.
+Experiment with your own slices — try different ``start``, ``stop``, and
+``step`` values:
 
-.. code-block:: python
+.. try_examples::
+   :height: 320px
 
-   s = "fragment"
-   k = 3
-   print(s[1])
-   print(s[k])
-   print(s[2 * k - 2])
-   print(s[-1])
-   print(s[2:5])
-   print(s[::-1])
+   >>> s = "fragment"
+   >>> k = 3
+   >>> print(s[1])
+   r
+   >>> print(s[k])
+   g
+   >>> print(s[2 * k - 2])
+   m
+   >>> print(s[-1])
+   t
+   >>> print(s[2:5])
+   agm
+   >>> print(s[::-1])      # reversed
+   tnemgarf

@@ -19,34 +19,29 @@ Python's Built-in Sort
 
 ``list.sort()`` sorts *in place* (modifies the list, returns ``None``).
 ``sorted(iterable)`` returns a *new* sorted list without modifying the
-original.
+original.  Try it live and watch ``sort`` modify the list in place:
 
-.. code-block:: python
+.. try_examples::
+   :height: 220px
 
-   nums = [3, 1, 4, 1, 5, 9, 2]
-   nums.sort()
-   print(nums)
-
-Output:
-
-.. code-block:: none
-
+   >>> nums = [3, 1, 4, 1, 5, 9, 2]
+   >>> nums.sort()
+   >>> print(nums)
    [1, 1, 2, 3, 4, 5, 9]
 
-.. code-block:: python
+The ``key`` and ``reverse`` arguments control how ``sorted()`` orders
+items.  Try it live: sort by ``len``, in reverse, or with your own ``key``:
 
-   words = ["banana", "apple", "cherry"]
-   print(sorted(words))         # alphabetical
-   print(sorted(words, key=len)) # by length
-   print(sorted(words, reverse=True))
+.. try_examples::
+   :height: 280px
 
-Output:
-
-.. code-block:: none
-
-   ['apple', 'banana', 'cherry']
-   ['apple', 'banana', 'cherry']
-   ['cherry', 'banana', 'apple']
+   >>> words = ["banana", "apple", "cherry", "fig"]
+   >>> print(sorted(words))               # alphabetical
+   ['apple', 'banana', 'cherry', 'fig']
+   >>> print(sorted(words, key=len))      # by length
+   ['fig', 'apple', 'banana', 'cherry']
+   >>> print(sorted(words, reverse=True)) # reverse alphabetical
+   ['fig', 'cherry', 'banana', 'apple']
 
 Selection Sort
 --------------

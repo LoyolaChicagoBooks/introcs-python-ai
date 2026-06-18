@@ -11,17 +11,23 @@ Chapter Review Questions
 
    a.  Name all three.
 
-3. What is printed?
+3. What is printed?  Predict the output first, then press **Try it live** to
+   check:
 
-   .. code-block:: python
+   .. try_examples::
+      :height: 300px
 
-      x = 7
-      if x > 5:
-          print("big")
-      if x > 10:
-          print("very big")
-      else:
-          print("not very big")
+      >>> x = 7
+      >>> if x > 5:
+      ...     print("big")
+      ...
+      big
+      >>> if x > 10:
+      ...     print("very big")
+      ... else:
+      ...     print("not very big")
+      ...
+      not very big
 
 4. Short-circuit evaluation.
 
@@ -62,7 +68,12 @@ Chapter Review Questions
    they are also divisible by 400.
 
 10. What does this expression evaluate to, and what type does it produce?
+    Predict first, then press **Try it live** to confirm:
 
-    .. code-block:: python
+    .. try_examples::
+       :height: 220px
 
-       "pass" if 75 >= 60 else "fail"
+       >>> "pass" if 75 >= 60 else "fail"
+       'pass'
+       >>> type("pass" if 75 >= 60 else "fail")
+       <class 'str'>

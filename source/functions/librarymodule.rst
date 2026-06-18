@@ -18,9 +18,11 @@ Use the ``import`` statement to make a module available:
 
    import math
 
-After importing, access the module's contents with dot notation:
+After importing, access the module's contents with dot notation.  Press
+**Try it live** to run the import and a few ``math`` calls:
 
-.. code-block:: none
+.. try_examples::
+   :height: 280px
 
    >>> import math
    >>> math.sqrt(2)
@@ -74,15 +76,19 @@ The ``random`` Module
 ---------------------
 
 The ``random`` module generates pseudo-random numbers, which is useful for
-games and simulations:
+games and simulations.  We call ``random.seed(0)`` first so the results below
+are reproducible; remove that line to get different numbers each run.  Press
+**Try it live**:
 
-.. code-block:: none
+.. try_examples::
+   :height: 280px
 
    >>> import random
-   >>> random.randint(1, 6)    # simulates a die roll
+   >>> random.seed(0)           # make the results reproducible
+   >>> random.randint(1, 6)     # simulates a die roll
    4
    >>> random.random()          # float in [0.0, 1.0)
-   0.37444887175646646
+   0.7579544029403025
    >>> random.choice(["rock", "paper", "scissors"])
    'paper'
 
@@ -91,29 +97,22 @@ games and simulations:
 Selective Import
 ----------------
 
-To import just specific names from a module, avoiding the module prefix:
+To import just specific names from a module, avoiding the module prefix, use
+``from math import sqrt, pi``.  You can also import everything with
+``from math import *`` (generally discouraged in larger programs), or give a
+module a shorter alias with ``import math as m``.  Press **Try it live**:
 
-.. code-block:: python
+.. try_examples::
+   :height: 240px
 
-   from math import sqrt, pi
-
-   print(sqrt(2))    # no 'math.' needed
-   print(pi)
-
-Or import everything (generally discouraged in larger programs):
-
-.. code-block:: python
-
-   from math import *
+   >>> from math import sqrt, pi
+   >>> print(sqrt(16), round(pi, 4))
+   4.0 3.1416
+   >>> import math as m
+   >>> print(m.factorial(5))
+   120
 
 .. index:: import; alias, import as
-
-You can also give a module a shorter alias:
-
-.. code-block:: python
-
-   import math as m
-   print(m.sqrt(2))
 
 .. index:: import; where Python looks
 

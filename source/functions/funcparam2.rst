@@ -11,20 +11,15 @@ Example: Addition
 
 This function takes two numbers and prints a sentence describing their sum:
 
-.. code-block:: python
+.. try_examples::
 
-   def print_sum(a, b):
-       total = a + b
-       print(f"The sum of {a} and {b} is {total}.")
-
-   print_sum(3, 4)
-   print_sum(10, 25)
-
-Output:
-
-.. code-block:: none
-
+   >>> def print_sum(a, b):
+   ...     total = a + b
+   ...     print(f"The sum of {a} and {b} is {total}.")
+   ...
+   >>> print_sum(3, 4)
    The sum of 3 and 4 is 7.
+   >>> print_sum(10, 25)
    The sum of 10 and 25 is 35.
 
 When you call ``print_sum(3, 4)``:
@@ -41,8 +36,12 @@ Keyword Arguments
 
 You can also pass arguments by name (called *keyword arguments*):
 
-.. code-block:: none
+.. try_examples::
 
+   >>> def print_sum(a, b):
+   ...     total = a + b
+   ...     print(f"The sum of {a} and {b} is {total}.")
+   ...
    >>> print_sum(b=4, a=3)
    The sum of 3 and 4 is 7.
 
@@ -57,19 +56,14 @@ Default Values
 Parameters can have *default values*.  If the caller omits the argument, the
 default is used:
 
-.. code-block:: python
+.. try_examples::
 
-   def greet(name, greeting="Hello"):
-       print(f"{greeting}, {name}!")
-
-   greet("Alice")            # uses default greeting
-   greet("Bob", "Hi there")  # overrides default
-
-Output:
-
-.. code-block:: none
-
+   >>> def greet(name, greeting="Hello"):
+   ...     print(f"{greeting}, {name}!")
+   ...
+   >>> greet("Alice")            # uses default greeting
    Hello, Alice!
+   >>> greet("Bob", "Hi there")  # overrides default
    Hi there, Bob!
 
 Parameters with default values must come *after* parameters without defaults.

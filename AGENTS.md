@@ -29,6 +29,23 @@ in the age of AI — is articulated in:
 
 ---
 
+## Authorship and AI assistance
+
+The intellectual content of this book — its argument, structure, pedagogy,
+examples, and prose — originated with George K. Thiruvathukal's own work on the
+book content, building on the prior C# edition and the source materials listed
+below. The ideas and editorial direction are the author's; AI tools are used
+only to assist with drafting, translation, editing, and tooling under that
+direction.
+
+Both **Anthropic's Claude** and **OpenAI's models** are used as assistants in
+this project (for example, adapting C# material to Python, expanding outlines
+into prose, and maintaining the Sphinx build). All AI-assisted output is
+reviewed and revised by the author; the AI does not set the book's intellectual
+agenda.
+
+---
+
 ## Remote repository
 
 ```
@@ -218,6 +235,66 @@ means:
   local server (`python -m http.server` from `build/html`), not via `file://`,
   or the Pyodide/WebAssembly fetches fail. numpy and matplotlib run inside the
   browser via Pyodide, so they do not need to be in `requirements.txt`.
+
+#### Runnable snippets in regular chapters (``.. try_examples::``)
+
+Beyond the dedicated `source/interactive/` chapter (which uses ``.. replite::``
+REPL widgets), individual short examples throughout the book are made runnable
+with the **``.. try_examples::``** directive from jupyterlite-sphinx. It renders
+the code in every format and adds a **"Try it live ▶"** button (HTML only) that
+swaps the code for a live, editable JupyterLite cell. This is the standard
+mechanism for in-text runnable snippets; prefer it over ``.. replite::`` outside
+the interactive chapter. Conventions:
+
+- **The directive content must be doctest format** (``>>>`` statements, ``...``
+  continuation lines, then expected output with no prompt). A multiline suite
+  ends with a bare ``...`` line before its output. The rendered code therefore
+  shows in REPL style — convert script-style examples accordingly.
+- **Replace, do not duplicate.** The ``try_examples`` block *is* the example;
+  remove the original ``.. code-block::`` (and any separate "Output:" block) so
+  the code is not shown twice. The code still appears in PDF/EPUB because the
+  directive renders its content in all formats; only the button is HTML.
+- **Each cell must be self-contained** — fold in any function/variable
+  definition the snippet depends on, since every ``try_examples`` block gets its
+  own kernel.
+- **Outputs are shown to readers** — run the snippet with `.venv/bin/python` and
+  paste the exact output. For ``random`` examples, seed with `random.seed(0)` so
+  the displayed output is reproducible.
+- **Skip non-runnable examples**: `input()`, file I/O, networking, `subprocess`,
+  `literalinclude` multi-file programs, intentionally-incomplete fragments, and
+  anything whose output contains a blank line (doctest needs `<BLANKLINE>`,
+  which renders literally — keep those as a static `.. code-block::`).
+- Standard option: ``:height:`` ~220–340px. No ``.. only::`` wrapper is needed.
+- **Config (`conf.py`):** `try_examples_global_button_text` and
+  `try_examples_global_warning_text` set the button label and the in-notebook
+  warning. (`global_enable_try_examples` is **not** used — it only processes
+  Python docstrings via autodoc, not hand-written ``.rst``, so every runnable
+  example needs its own explicit directive.)
+- **EPUB:** the run button is raw HTML and the EPUB builder's format is also
+  ``html``, so it would otherwise appear (dead) in the EPUB. `source/_static/
+  epub-overrides.css` (wired via `epub_css_files`) hides it; the LaTeX/PDF build
+  drops raw HTML automatically.
+
+Coverage is **complete** across all chapters with self-contained Python
+(~216 ``try_examples`` in ~49 files): `data`, `functions`, `basicstringops`,
+`decisions`, `while`, `for`, `modules`, `lists`, `tuples`, `dictionaries`,
+`lists_of_dicts`, `dict_algorithms`, `simulation`, `classes`, `recursion`,
+`datastructures`, `error_handling`. The interim ``.. replite::`` widgets have all
+been converted; ``.. replite::`` now appears only in the dedicated
+`source/interactive/` chapter.
+
+Chapters intentionally left without ``try_examples`` (nothing self-contained to
+run): `user_input`, `internet_data` (network), `testing` (needs a pytest
+runner), `terminal`/`hardware`/`context`/`computing_history` (prose/shell), and
+the `linear_algebra` stub — add numpy vector/matrix examples there once it is
+written.
+
+To validate output accuracy after editing, extract each ``try_examples`` block
+and run it through ``python -m doctest`` (try_examples does **not** execute
+doctests at build time, so wrong output is not caught by the Sphinx build). Watch
+for two non-failures: a trailing space after ``print(..., end=" ")`` loops, and
+tab vs. space rendering — both display fine. A genuine failure is any output
+containing a blank line (keep those examples static).
 
 ---
 

@@ -12,9 +12,10 @@ Python uses the keywords ``and``, ``or``, and ``not``.
 ``and``
 -------
 
-``a and b`` is ``True`` only when *both* ``a`` and ``b`` are true:
+``a and b`` is ``True`` only when *both* ``a`` and ``b`` are true.  Try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 240px
 
    >>> x = 5
    >>> x > 0 and x < 10
@@ -27,9 +28,10 @@ Python uses the keywords ``and``, ``or``, and ``not``.
 ``or``
 ------
 
-``a or b`` is ``True`` when *at least one* of ``a`` or ``b`` is true:
+``a or b`` is ``True`` when *at least one* of ``a`` or ``b`` is true.  Try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 240px
 
    >>> x = 15
    >>> x < 0 or x > 10
@@ -42,9 +44,10 @@ Python uses the keywords ``and``, ``or``, and ``not``.
 ``not``
 -------
 
-``not a`` flips the truth value:
+``not a`` flips the truth value.  Try it live:
 
-.. code-block:: none
+.. try_examples::
+   :height: 260px
 
    >>> not True
    False

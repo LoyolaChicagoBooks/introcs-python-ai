@@ -20,10 +20,14 @@ Annotating Parameters and Return Types
 Place a colon and a type after each parameter name, and use ``->``
 before the return type:
 
-.. code-block:: python
+.. try_examples::
+   :height: 200px
 
-   def add(a: int, b: int) -> int:
-       return a + b
+   >>> def add(a: int, b: int) -> int:
+   ...     return a + b
+   ...
+   >>> add(3, 4)
+   7
 
 Compare with the unannotated version:
 
@@ -80,9 +84,17 @@ Annotations Are Not Enforced at Runtime
 
 Python will not raise an error if you pass the wrong type:
 
-.. code-block:: python
+.. try_examples::
+   :height: 200px
 
-   add("hello", "world")   # runs fine, returns "helloworld"
+   >>> def add(a: int, b: int) -> int:
+   ...     return a + b
+   ...
+   >>> add("hello", "world")
+   'helloworld'
+
+The annotations say ``int``, but passing strings runs fine and returns
+the concatenated string — the hints are not enforced.
 
 This is intentional — annotations are a *communication tool*, not a
 constraint.  If you want enforcement, a static type checker such as

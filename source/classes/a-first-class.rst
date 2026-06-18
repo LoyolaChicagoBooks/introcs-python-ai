@@ -50,18 +50,24 @@ Accessing Instance Variables
 
 .. index:: instance variable; access
 
-.. code-block:: python
+Run this to create a ``Contact`` and read back each of its instance
+variables — try changing the values:
 
-   print(c.name)
-   print(c.phone)
-   print(c.email)
+.. try_examples::
+   :height: 280px
 
-Output:
-
-.. code-block:: none
-
+   >>> class Contact:
+   ...     def __init__(self, name: str, phone: str, email: str):
+   ...         self.name = name
+   ...         self.phone = phone
+   ...         self.email = email
+   ...
+   >>> c = Contact("Marie Ortiz", "773-508-7890", "mortiz2@luc.edu")
+   >>> print(c.name)
    Marie Ortiz
+   >>> print(c.phone)
    773-508-7890
+   >>> print(c.email)
    mortiz2@luc.edu
 
 Adding a ``__str__`` Method
@@ -77,15 +83,24 @@ representation of the object (e.g., inside ``print()``):
    :start-after: # start: Contact
    :end-before: # end: Contact
 
-.. code-block:: python
+Run this version, which defines the class with ``__str__`` and then prints
+an instance:
 
-   c = Contact("Marie Ortiz", "773-508-7890", "mortiz2@luc.edu")
-   print(c)
+.. try_examples::
+   :height: 320px
 
-Output:
-
-.. code-block:: none
-
+   >>> class Contact:
+   ...     def __init__(self, name: str, phone: str, email: str):
+   ...         self.name = name
+   ...         self.phone = phone
+   ...         self.email = email
+   ...     def __str__(self) -> str:
+   ...         return (f"Name:  {self.name}\n"
+   ...                 f"Phone: {self.phone}\n"
+   ...                 f"Email: {self.email}")
+   ...
+   >>> c = Contact("Marie Ortiz", "773-508-7890", "mortiz2@luc.edu")
+   >>> print(c)
    Name:  Marie Ortiz
    Phone: 773-508-7890
    Email: mortiz2@luc.edu
@@ -103,15 +118,22 @@ their first argument.  We can add a method to update the email address:
        def set_email(self, new_email: str) -> None:
            self.email = new_email
 
-.. code-block:: python
+Run this to call the method and confirm the email address changed:
 
-   c.set_email("maria.ortiz@gmail.com")
-   print(c.email)
+.. try_examples::
+   :height: 300px
 
-Output:
-
-.. code-block:: none
-
+   >>> class Contact:
+   ...     def __init__(self, name: str, phone: str, email: str):
+   ...         self.name = name
+   ...         self.phone = phone
+   ...         self.email = email
+   ...     def set_email(self, new_email: str) -> None:
+   ...         self.email = new_email
+   ...
+   >>> c = Contact("Marie Ortiz", "773-508-7890", "mortiz2@luc.edu")
+   >>> c.set_email("maria.ortiz@gmail.com")
+   >>> print(c.email)
    maria.ortiz@gmail.com
 
 .. index:: name mangling, single underscore convention

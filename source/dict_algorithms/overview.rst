@@ -44,6 +44,20 @@ The ``.get()`` method makes this more concise:
 ``get(key, 0)`` returns the current count if the key exists, or ``0`` if it does
 not, avoiding a ``KeyError``.
 
+Run the counting pattern below, then change ``words`` — try counting the
+characters in a string such as ``"mississippi"`` instead:
+
+.. try_examples::
+   :height: 240px
+
+   >>> words = ["apple", "banana", "apple", "pear", "banana", "apple"]
+   >>> counts = {}
+   >>> for w in words:
+   ...     counts[w] = counts.get(w, 0) + 1
+   ...
+   >>> print(counts)
+   {'apple': 3, 'banana': 2, 'pear': 1}
+
 .. index:: dict; filtering pattern, dict comprehension; filtering
 
 Filtering Dictionaries
@@ -104,17 +118,14 @@ Reversing a Dictionary
 -----------------------
 
 Swap keys and values. This works correctly only when values are unique and hashable.
+Run it and try adding a duplicate value to see what happens:
 
-.. code-block:: python
+.. try_examples::
+   :height: 220px
 
-   grades = {"A": 90, "B": 80, "C": 70}
-   reversed_grades = {v: k for k, v in grades.items()}
-   print(reversed_grades)
-
-Output:
-
-.. code-block:: none
-
+   >>> grades = {"A": 90, "B": 80, "C": 70}
+   >>> reversed_grades = {v: k for k, v in grades.items()}
+   >>> print(reversed_grades)
    {90: 'A', 80: 'B', 70: 'C'}
 
 If values are not unique, later entries overwrite earlier ones during the reversal.
@@ -124,20 +135,15 @@ If values are not unique, later entries overwrite earlier ones during the revers
 Merging Dictionaries
 ---------------------
 
-Python 3.9+ provides the merge operator ``|``:
+Python 3.9+ provides the merge operator ``|``. Run it and edit the dictionaries:
 
-.. code-block:: python
+.. try_examples::
+   :height: 240px
 
-   a = {"x": 1, "y": 2}
-   b = {"y": 3, "z": 4}
-
-   c = a | b
-   print(c)
-
-Output:
-
-.. code-block:: none
-
+   >>> a = {"x": 1, "y": 2}
+   >>> b = {"y": 3, "z": 4}
+   >>> c = a | b
+   >>> print(c)
    {'x': 1, 'y': 3, 'z': 4}
 
 If both dictionaries share a key, the right-hand dictionary wins. For older Python:
@@ -152,18 +158,15 @@ If both dictionaries share a key, the right-hand dictionary wins. For older Pyth
 Safe Access with ``.get()``
 ----------------------------
 
-Use ``.get()`` to avoid ``KeyError`` when a key may not exist:
+Use ``.get()`` to avoid ``KeyError`` when a key may not exist. Run it, then try
+adding ``"mode"`` to ``config`` and see how the result changes:
 
-.. code-block:: python
+.. try_examples::
+   :height: 220px
 
-   config = {"debug": True}
-   mode = config.get("mode", "production")
-   print(mode)
-
-Output:
-
-.. code-block:: none
-
+   >>> config = {"debug": True}
+   >>> mode = config.get("mode", "production")
+   >>> print(mode)
    production
 
 .. index:: nested dictionaries, hierarchical data; dict
@@ -171,21 +174,17 @@ Output:
 Nested Dictionaries
 --------------------
 
-Dictionaries can hold other dictionaries, allowing hierarchical data:
+Dictionaries can hold other dictionaries, allowing hierarchical data. Run it and
+try reaching the science score:
 
-.. code-block:: python
+.. try_examples::
+   :height: 260px
 
-   student = {
-       "name": "Alice",
-       "scores": {"math": 90, "science": 85}
-   }
-
-   print(student["scores"]["math"])
-
-Output:
-
-.. code-block:: none
-
+   >>> student = {
+   ...     "name": "Alice",
+   ...     "scores": {"math": 90, "science": 85}
+   ... }
+   >>> print(student["scores"]["math"])
    90
 
 .. index:: dict algorithms; lists of dicts, index by unique field; O(1) lookup, frequency count; list of dicts
@@ -209,17 +208,19 @@ Output:
 
    {30: 2, 25: 1}
 
-**Index by a unique field** (convert list → dictionary for O(1) lookup):
+**Index by a unique field** (convert list → dictionary for O(1) lookup). Run it
+and look up a different person:
 
-.. code-block:: python
+.. try_examples::
+   :height: 280px
 
-   index = {p["name"]: p for p in people}
-   print(index["Alice"])
-
-Output:
-
-.. code-block:: none
-
+   >>> people = [
+   ...     {"name": "Alice", "age": 30},
+   ...     {"name": "Bob", "age": 25},
+   ...     {"name": "Cara", "age": 30},
+   ... ]
+   >>> index = {p["name"]: p for p in people}
+   >>> print(index["Alice"])
    {'name': 'Alice', 'age': 30}
 
 **Group records by a field:**

@@ -13,18 +13,16 @@ Multiples of k
 Suppose we want to print the first ``n`` multiples of ``k`` — for example
 the first 5 multiples of 3: 3, 6, 9, 12, 15.
 
-One approach uses an index 1 through ``n`` and multiplies:
+One approach uses an index 1 through ``n`` and multiplies.  Press **Try it
+live** to run it and change ``n`` or ``k``:
 
-.. code-block:: python
+.. try_examples::
+   :height: 260px
 
-   n, k = 5, 3
-   for i in range(1, n + 1):
-       print(i * k)
-
-Output:
-
-.. code-block:: none
-
+   >>> n, k = 5, 3
+   >>> for i in range(1, n + 1):
+   ...     print(i * k)
+   ...
    3
    6
    9
@@ -35,10 +33,18 @@ Output:
 
 Another approach steps directly through the multiples using a custom step:
 
-.. code-block:: python
+.. try_examples::
+   :height: 260px
 
-   for i in range(k, n * k + 1, k):
-       print(i)
+   >>> n, k = 5, 3
+   >>> for i in range(k, n * k + 1, k):
+   ...     print(i)
+   ...
+   3
+   6
+   9
+   12
+   15
 
 Both produce identical output.  The second is natural when the step size
 *is* the value you care about.
@@ -89,21 +95,18 @@ Output:
 The numbers are correct but the columns are ragged.  Python f-strings let
 us specify field widths and precision.  The format spec ``{value:Nd}``
 right-justifies an integer in a field of width N; ``{value:N.4f}`` gives
-a float with 4 decimal places in a field of width N.
+a float with 4 decimal places in a field of width N.  Run it and try
+adjusting the widths:
 
-.. code-block:: python
+.. try_examples::
+   :height: 360px
 
-   import math
-
-   print(f"{'n':>4} {'square':>8} {'cube':>8} {'root':>8}")
-   for n in range(1, 11):
-       print(f"{n:4d} {n**2:8d} {n**3:8d} {math.sqrt(n):8.4f}")
-
-Output:
-
-.. code-block:: none
-
+   >>> import math
+   >>> print(f"{'n':>4} {'square':>8} {'cube':>8} {'root':>8}")
       n   square     cube     root
+   >>> for n in range(1, 11):
+   ...     print(f"{n:4d} {n**2:8d} {n**3:8d} {math.sqrt(n):8.4f}")
+   ...
       1        1        1   1.0000
       2        4        8   1.4142
       3        9       27   1.7321
@@ -252,24 +255,19 @@ Reversed String
 .. index:: string; reverse, accumulation pattern
 
 To reverse a string we iterate through it backwards and accumulate
-characters.  Start ``rev`` as the empty string and append each character:
+characters.  Start ``rev`` as the empty string and append each character.
+Run it and try reversing a word of your own:
 
-.. code-block:: python
+.. try_examples::
+   :height: 240px
 
-   def reversed_string(s: str) -> str:
-       rev = ""
-       for i in range(len(s) - 1, -1, -1):
-           rev += s[i]
-       return rev
-
-.. code-block:: python
-
-   print(reversed_string("drab"))
-
-Output:
-
-.. code-block:: none
-
+   >>> def reversed_string(s: str) -> str:
+   ...     rev = ""
+   ...     for i in range(len(s) - 1, -1, -1):
+   ...         rev += s[i]
+   ...     return rev
+   ...
+   >>> print(reversed_string("drab"))
    bard
 
 Trace through ``"drab"`` to confirm: the loop visits indices 3, 2, 1, 0,
@@ -291,18 +289,16 @@ Using ``enumerate()``
 .. index:: enumerate()
 
 Sometimes you need both the *position* and the *value* while iterating.
-Python's ``enumerate()`` provides both without manual index tracking:
+Python's ``enumerate()`` provides both without manual index tracking.  Run
+it live:
 
-.. code-block:: python
+.. try_examples::
+   :height: 240px
 
-   words = ["apple", "banana", "cherry"]
-   for i, word in enumerate(words):
-       print(f"{i}: {word}")
-
-Output:
-
-.. code-block:: none
-
+   >>> words = ["apple", "banana", "cherry"]
+   >>> for i, word in enumerate(words):
+   ...     print(f"{i}: {word}")
+   ...
    0: apple
    1: banana
    2: cherry
@@ -311,15 +307,13 @@ Output:
 each pair into ``i`` and ``word``.  An optional second argument sets the
 starting index:
 
-.. code-block:: python
+.. try_examples::
+   :height: 240px
 
-   for i, word in enumerate(words, start=1):
-       print(f"{i}. {word}")
-
-Output:
-
-.. code-block:: none
-
+   >>> words = ["apple", "banana", "cherry"]
+   >>> for i, word in enumerate(words, start=1):
+   ...     print(f"{i}. {word}")
+   ...
    1. apple
    2. banana
    3. cherry

@@ -111,26 +111,21 @@ Handling Errors Inside a Loop
 ------------------------------
 
 When processing a collection, you often want to skip invalid items rather than
-aborting the entire program.
+aborting the entire program. Run this and try changing the values in ``nums``:
 
-.. code-block:: python
+.. try_examples::
+   :height: 280
 
-   nums = ["1", "2", "three", "4"]
-   total = 0
-
-   for n in nums:
-       try:
-           total += int(n)
-       except ValueError:
-           print(f"Skipped bad value: {n}")
-
-   print("Total:", total)
-
-Output:
-
-.. code-block:: none
-
+   >>> nums = ["1", "2", "three", "4"]
+   >>> total = 0
+   >>> for n in nums:
+   ...     try:
+   ...         total += int(n)
+   ...     except ValueError:
+   ...         print(f"Skipped bad value: {n}")
+   ...
    Skipped bad value: three
+   >>> print("Total:", total)
    Total: 7
 
 .. index:: raise statement, exception; raising deliberately

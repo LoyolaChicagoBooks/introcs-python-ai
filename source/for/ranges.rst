@@ -17,15 +17,14 @@ One-Argument Form: ``range(n)``
 
    range(n)   →  0, 1, 2, ..., n-1
 
-.. code-block:: python
+Run it live and change ``n``:
 
-   for i in range(4):
-       print(i)
+.. try_examples::
+   :height: 240px
 
-Output:
-
-.. code-block:: none
-
+   >>> for i in range(4):
+   ...     print(i)
+   ...
    0
    1
    2
@@ -33,14 +32,10 @@ Output:
 
 To see the full sequence at once, convert it to a list:
 
-.. code-block:: python
+.. try_examples::
+   :height: 200px
 
-   print(list(range(4)))
-
-Output:
-
-.. code-block:: none
-
+   >>> print(list(range(4)))
    [0, 1, 2, 3]
 
 Two-Argument Form: ``range(start, stop)``
@@ -52,15 +47,14 @@ Two-Argument Form: ``range(start, stop)``
 
    range(start, stop)   →  start, start+1, ..., stop-1
 
-.. code-block:: python
+Run it live:
 
-   for i in range(1, 6):
-       print(i)
+.. try_examples::
+   :height: 260px
 
-Output:
-
-.. code-block:: none
-
+   >>> for i in range(1, 6):
+   ...     print(i)
+   ...
    1
    2
    3
@@ -78,36 +72,48 @@ Three-Argument Form: ``range(start, stop, step)``
 
    range(start, stop, step)   →  start, start+step, start+2*step, ...
 
-Counting by fives from 0 to 20:
+Counting by fives from 0 to 20.  Run it and change the step:
 
-.. code-block:: python
+.. try_examples::
+   :height: 200px
 
-   print(list(range(0, 25, 5)))
-
-Output:
-
-.. code-block:: none
-
+   >>> print(list(range(0, 25, 5)))
    [0, 5, 10, 15, 20]
 
 The sequence stops *before* it would equal or exceed ``stop``.
+
+The boundaries of ``range()`` are the classic source of off-by-one bugs.
+Change ``start``, ``stop``, and ``step`` and watch which integers appear:
+
+.. try_examples::
+   :height: 300px
+
+   >>> print(list(range(5)))           # 0 .. 4
+   [0, 1, 2, 3, 4]
+   >>> print(list(range(1, 6)))        # 1 .. 5  (stop is exclusive)
+   [1, 2, 3, 4, 5]
+   >>> print(list(range(0, 25, 5)))    # count by fives
+   [0, 5, 10, 15, 20]
+   >>> print(list(range(5, 0, -1)))    # count down
+   [5, 4, 3, 2, 1]
+   >>> for i in range(1, 6):
+   ...     print(i, end=" ")
+   ...
+   1 2 3 4 5
 
 Reverse Iteration
 -----------------
 
 .. index:: range; reverse, reversed()
 
-A negative step counts downward:
+A negative step counts downward.  Run it live:
 
-.. code-block:: python
+.. try_examples::
+   :height: 260px
 
-   for i in range(5, 0, -1):
-       print(i)
-
-Output:
-
-.. code-block:: none
-
+   >>> for i in range(5, 0, -1):
+   ...     print(i)
+   ...
    5
    4
    3
@@ -118,15 +124,12 @@ Output:
 
 An alternative that reads more naturally is ``reversed(range(n))``:
 
-.. code-block:: python
+.. try_examples::
+   :height: 260px
 
-   for i in reversed(range(5)):
-       print(i)
-
-Output:
-
-.. code-block:: none
-
+   >>> for i in reversed(range(5)):
+   ...     print(i)
+   ...
    4
    3
    2
