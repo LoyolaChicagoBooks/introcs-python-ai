@@ -60,8 +60,13 @@ is called a **higher-order function**.
 
 When the function you want to pass is small, naming it with ``def`` is
 more trouble than it is worth.  A **lambda** is a short, unnamed function
-written inline.  Lambdas earn their place when there is no built-in that
-does what you need:
+written inline.  You write the keyword ``lambda``, then its parameters, a
+colon, and a single expression.  So ``lambda w: w[-1]`` reads as "given
+``w``, give back ``w[-1]``, its last letter" — the same as a one-line
+``def`` that returns ``w[-1]``, but with no name and no ``return``
+keyword.  A lambda is a single expression, and its value is whatever that
+expression produces.  Lambdas earn their place when there is no built-in
+that does what you need:
 
 .. try_examples::
    :height: 280px
@@ -72,9 +77,8 @@ does what you need:
    >>> print(sorted(words, key=lambda w: (len(w), w)))  # length, then alphabetical
    ['fig', 'apple', 'banana', 'cherry']
 
-Read ``lambda w: w[-1]`` as "given ``w``, give back its last letter."
-There is no ``def`` and no ``return``: a lambda is a single expression,
-and its value is what the lambda hands back.
+The second key, ``lambda w: (len(w), w)``, returns a tuple, so the words
+sort by length first and then alphabetically among ties.
 
 Passing small functions around like this is your first taste of
 *functional thinking*, and it pairs with a second idea you have already
