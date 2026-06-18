@@ -43,6 +43,66 @@ items.  Try it live: sort by ``len``, in reverse, or with your own ``key``:
    >>> print(sorted(words, reverse=True)) # reverse alphabetical
    ['fig', 'cherry', 'banana', 'apple']
 
+.. _Functions-as-Values:
+
+Functions as Values
+-------------------
+
+.. index:: lambda, higher-order function, function; as value
+   pure function, side effects, functional programming
+
+Look again at ``sorted(words, key=len)``.  You did not call ``len`` —
+you handed the function itself to ``sorted`` and let it do the calling.
+In Python a function is a value like any other: you can store it in a
+variable, pass it to another function, or return it.  A function that
+takes another function as an argument (the way ``sorted`` takes ``key``)
+is called a **higher-order function**.
+
+When the function you want to pass is small, naming it with ``def`` is
+more trouble than it is worth.  A **lambda** is a short, unnamed function
+written inline.  Lambdas earn their place when there is no built-in that
+does what you need:
+
+.. try_examples::
+   :height: 280px
+
+   >>> words = ["banana", "apple", "cherry", "fig"]
+   >>> print(sorted(words, key=lambda w: w[-1]))        # by last letter
+   ['banana', 'apple', 'fig', 'cherry']
+   >>> print(sorted(words, key=lambda w: (len(w), w)))  # length, then alphabetical
+   ['fig', 'apple', 'banana', 'cherry']
+
+Read ``lambda w: w[-1]`` as "given ``w``, give back its last letter."
+There is no ``def`` and no ``return``: a lambda is a single expression,
+and its value is what the lambda hands back.
+
+Passing small functions around like this is your first taste of
+*functional thinking*, and it pairs with a second idea you have already
+met.  ``sorted`` returns a *new* list; ``list.sort`` changes the list in
+place.  ``sorted`` is a **pure function**: it computes a result from its
+arguments and does nothing else, so the same input always gives the same
+output.  ``list.sort`` has a **side effect**: it modifies something and
+returns ``None``.
+
+.. try_examples::
+   :height: 300px
+
+   >>> nums = [3, 1, 2]
+   >>> result = sorted(nums)    # pure: builds a new list
+   >>> print(result, nums)      # original untouched
+   [1, 2, 3] [3, 1, 2]
+   >>> nums.sort()              # side effect: changes nums
+   >>> print(nums)
+   [1, 2, 3]
+
+Neither style is wrong.  Pure functions are easier to test and reason
+about, because you only have to think about what goes in and what comes
+out.  Side effects are how a program changes the world — printing,
+writing files, updating a list in place.  The skill is knowing which one
+you are using.  We come back to functional thinking — ``map``,
+``filter``, and writing your own higher-order functions — after
+:ref:`Recursion <Recursion-Intro>`.
+
 Selection Sort
 --------------
 

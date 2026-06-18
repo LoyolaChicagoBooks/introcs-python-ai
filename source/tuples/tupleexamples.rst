@@ -102,7 +102,10 @@ Sorting a List of Tuples
 .. index:: sorted(); key with tuple
 
 ``sorted()`` compares tuples lexicographically by default (first element
-first, then second, etc.).  Try it live and edit the sort key:
+first, then second, etc.).  To sort by a particular field, pass a
+``key`` function — here a lambda, introduced in
+:ref:`Functions as Values <Functions-as-Values>`.  Try it live and edit
+the sort key:
 
 .. try_examples::
    :height: 280px

@@ -384,11 +384,13 @@ programming.
    * - **PL2** Functional Programming
      - Tier 2
      - CS2
-     - :ref:`List Comprehensions <List-Comprehensions>`,
+     - :ref:`Functions as Values <Functions-as-Values>`
+       (lambdas, higher-order functions, pure vs. side-effecting),
+       :ref:`List Comprehensions <List-Comprehensions>`,
        :ref:`Recursion Examples <Recursion-Examples>`
        (memoisation via ``lru_cache``).
-       *Missing:* closures, ``map``/``filter``,
-       higher-order functions as a paradigm.
+       *Missing:* closures, ``map``/``filter``, and the full
+       functional-programming toolkit (planned as a dedicated chapter).
      - **Minimal**
    * - **PL3** Event-Driven and Reactive Programming
      - Tier 2
