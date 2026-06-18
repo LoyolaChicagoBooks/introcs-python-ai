@@ -384,14 +384,16 @@ programming.
    * - **PL2** Functional Programming
      - Tier 2
      - CS2
-     - :ref:`Functions as Values <Functions-as-Values>`
-       (lambdas, higher-order functions, pure vs. side-effecting),
-       :ref:`List Comprehensions <List-Comprehensions>`,
-       :ref:`Recursion Examples <Recursion-Examples>`
-       (memoisation via ``lru_cache``).
-       *Missing:* closures, ``map``/``filter``, and the full
-       functional-programming toolkit (planned as a dedicated chapter).
-     - **Minimal**
+     - Dedicated :ref:`Functional Programming <Functional-Programming>`
+       chapter: ``map``/``filter``/``reduce``,
+       :ref:`closures and composition <Closures>`, ``functools.partial``,
+       :ref:`immutability and pure cores <Pure-Cores>`, and
+       :ref:`property-based testing <Functional-Correctness>`.
+       Seeded earlier by :ref:`Functions as Values <Functions-as-Values>`
+       and :ref:`List Comprehensions <List-Comprehensions>`; extended by
+       :ref:`Recursion Examples <Recursion-Examples>` (generators,
+       ``lru_cache``).
+     - **Adequate**
    * - **PL3** Event-Driven and Reactive Programming
      - Tier 2
      - CS1
@@ -922,8 +924,10 @@ urgent under CS2023.
 **Functional programming elevated.** CS2023 raises PL2/Functional Programming
 from Tier 2 to *Should* — one level below *Must* — reflecting the industry
 trend toward functional styles in Python, JavaScript, and Rust. The
-:ref:`List Comprehensions <List-Comprehensions>` section is a good foundation
-to build on.
+dedicated :ref:`Functional Programming <Functional-Programming>` chapter
+meets this expectation, covering higher-order functions, closures,
+immutability, and property-based testing on top of the
+:ref:`List Comprehensions <List-Comprehensions>` foundation.
 
 **Type systems expanded.** CS2023 introduces a dedicated *Type Systems and
 Semantics* KU (building on PL4) that includes gradual typing — highly relevant

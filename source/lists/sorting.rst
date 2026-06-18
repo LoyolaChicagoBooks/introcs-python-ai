@@ -104,8 +104,8 @@ about, because you only have to think about what goes in and what comes
 out.  Side effects are how a program changes the world — printing,
 writing files, updating a list in place.  The skill is knowing which one
 you are using.  We come back to functional thinking — ``map``,
-``filter``, and writing your own higher-order functions — after
-:ref:`Recursion <Recursion-Intro>`.
+``filter``, and writing your own higher-order functions — in the
+:ref:`Functional Programming <Functional-Programming>` chapter.
 
 Selection Sort
 --------------

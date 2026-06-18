@@ -78,6 +78,11 @@ When adapting or adding content, draw from:
    handling, lists of dicts, dict algorithms, internet data, GUI chapters.
 4. **`~/Work/operatingsystems`** — Linux terminal examples drawn from
    `source/introduction.rst`.
+5. **`~/Work/scalaworkshop`** — Läufer & Thiruvathukal, *Type-Safe Functional
+   Programming for Computer Science and Data Science* (IEEE eScience 2025
+   workshop; https://scalaworkshop.cs.luc.edu); source for the Functional
+   Programming chapter (`02-fp-essentials` framing; Newton and Monte Carlo
+   from `numerical-explorations-scala`), recast from Scala into Python.
 
 Every RST file contributed by PhD students carries a `.. note::` attribution:
 `*Source:* Contributed by PhD students in COMP 501 at Loyola University Chicago.`

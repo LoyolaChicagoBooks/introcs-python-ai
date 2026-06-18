@@ -40,6 +40,7 @@ Introduction to Computer Science in Python
    classes/classes
    testing/testing
    recursion/recursion
+   functional/functional
    datastructures/datastructures
    ui/overview
    case_studies/case_studies

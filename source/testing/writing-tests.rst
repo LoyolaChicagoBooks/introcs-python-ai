@@ -90,3 +90,11 @@ One Assert per Test (Guideline)
 When a test contains many assertions and fails, it can be hard to tell
 *which* assertion caused the failure.  Prefer one logical check per test
 function so failure messages are immediately actionable.
+
+.. seealso::
+
+   Example-based tests only check the inputs you think to write down.
+   The :ref:`Testing for Correctness <Functional-Correctness>` section of
+   the Functional Programming chapter introduces **property-based testing**,
+   which states a property that must hold for *every* input and lets a
+   library search for counterexamples.

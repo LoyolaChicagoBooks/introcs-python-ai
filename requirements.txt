@@ -5,5 +5,7 @@ pandas
 matplotlib
 rich
 textual
+pytest
+hypothesis
 jupyterlite-sphinx
 jupyterlite-pyodide-kernel
