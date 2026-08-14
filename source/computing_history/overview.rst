@@ -13,21 +13,20 @@ Episodes in Computing History
 
    - George K. Thiruvathukal, "Episodes in Computing History — Salon Talk,"
      Loyola University Chicago, 2025.
-     `ecommons.luc.edu/cs_facpubs/417 <https://ecommons.luc.edu/cs_facpubs/417/>`__
-     (`doi:10.6084/m9.figshare.29632070 <https://doi.org/10.6084/m9.figshare.29632070>`__) — primary source.
-
-   - George K. Thiruvathukal and David B. Dennis, "Computer Science and Cultural History:
-     A Dialogue," CESTEMER Conference, Goodman Theater, Chicago, September 2017.
-     `ecommons.luc.edu/history_facpubs/42 <https://ecommons.luc.edu/history_facpubs/42/>`__
+     `doi:10.6084/m9.figshare.29632070 <https://doi.org/10.6084/m9.figshare.29632070>`__
 
    - George K. Thiruvathukal, "Artificial Intelligence and/or Machine Learning (AI &| ML),"
      Invited Panel Discussion, Loyola University Retiree Association (LUCRA), March 2024.
-     `ecommons.luc.edu/cs_facpubs/378 <https://ecommons.luc.edu/cs_facpubs/378/>`__
-     (`doi:10.6084/m9.figshare.25955026 <https://doi.org/10.6084/m9.figshare.25955026>`__)
+     `doi:10.6084/m9.figshare.25955026 <https://doi.org/10.6084/m9.figshare.25955026>`__
 
    - George K. Thiruvathukal, Editor in Chief, *Computing in Science and Engineering*
      (IEEE/AIP), 2013–2016. A mini-history of computing was among the editorial projects
      completed during this tenure.
+     `ecommons.luc.edu/cs_facpubs/103 <https://ecommons.luc.edu/cs_facpubs/103/>`__
+
+   - George K. Thiruvathukal and David B. Dennis, "Computer Science and Cultural History:
+     A Dialogue," CESTEMER Conference, Goodman Theater, Chicago, September 2017.
+     `ecommons.luc.edu/history_facpubs/42 <https://ecommons.luc.edu/history_facpubs/42/>`__
 
 The story of computing does not begin with electricity, transistors, or
 programming languages. It begins with the far older and more fundamental human
